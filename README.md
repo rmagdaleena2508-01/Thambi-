@@ -15,6 +15,7 @@ sends it to the office that must fix it, and keeps it public until it is fixed.
 ![Languages](https://img.shields.io/badge/languages-Tamil%20%7C%20English-green)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
+[Data cautions](#65-data-cautions-and-known-gaps) ·
 [The idea](#the-idea) ·
 [Why Thambi](#why-thambi) ·
 [How it works](#how-it-works) ·
@@ -44,6 +45,7 @@ sends it to the office that must fix it, and keeps it public until it is fixed.
    - [6.2 How we approach each piece](#62-how-we-approach-each-piece)
    - [6.3 How trustworthy each piece must be](#63-how-trustworthy-each-piece-must-be)
    - [6.4 Authority contacts: why, how, and how accurate](#64-authority-contacts-why-how-and-how-accurate)
+   - [6.5 Data cautions and known gaps](#65-data-cautions-and-known-gaps)
 7. [Security and privacy](#security-and-privacy)
 8. [Tech stack](#tech-stack)
 9. [Roadmap](#roadmap)
@@ -282,6 +284,41 @@ During research we found two kinds of contact lists:
 | Unofficial lists on their own | **Unknown** | No official source stands behind them, which is why they are leads only. |
 
 Every authority row shows a **"verified on"** date to the public, so anyone can see how fresh it is and report a wrong number.
+
+### 6.5 Data cautions and known gaps
+
+> [!CAUTION]
+> Some of the data Thambi uses is **not yet confirmed**, or comes from sources that may be out of date. We list it here openly so nobody relies on it by mistake. **Uncertain or unchecked contacts are never used to route a complaint.** Results of the last check: [`data/VERIFICATION.md`](data/VERIFICATION.md) (15 November 2026).
+
+#### Contacts where two official sources disagree (uncertain)
+
+| Office | What we found | What Thambi does |
+|---|---|---|
+| Electricity — 1912 | Listed on `tn.gov.in`, but the electricity board's own website lists **94987 94987** for power failures and doesn't show 1912. | Uses 94987 94987 (verified on the board's own site). 1912 is kept only as a note. |
+| District Collector — Mayiladuthurai | `tn.gov.in` gives an STD code that belongs to another district. The district's own site lists a different number. | **Confirmed wrong on `tn.gov.in`.** Not used. |
+| District Collectors — Dharmapuri, Kanniyakumari, Krishnagiri, Salem, Thoothukudi | The district's own website lists a different landline from `tn.gov.in`. | Not used for routing until one number is confirmed. Both are kept in the notes. |
+| District Collectors — Erode, Kallakurichi, Nagapattinam, Perambalur, Ranipet, Theni, Tiruppur | The district's own website lists only an official mobile number, so the `tn.gov.in` landline can't be confirmed. Kallakurichi and Ranipet have no complete landline at all. | Not used for routing. Mobile numbers are **not stored**, by policy. Emails for all 38 Collectors do match. |
+
+#### Contacts not yet checked against a second source
+
+| Office | Why not checked | Note |
+|---|---|---|
+| Disaster helplines 1077 and 1070 | The disaster authority's website couldn't be read automatically. | Emergency lines, not complaint routing. |
+| Police 100 and Ambulance 108 | Standard emergency numbers; no second official page checked yet. | Thambi shows emergency numbers only when someone marks "danger right now". |
+| Chief Minister in your Constituency — 044-25672345 | The CM Helpline portal couldn't be read automatically. | Escalation only, not used for routing. |
+
+#### Other cautions
+
+- **Official pages can be out of date.** The `tn.gov.in` helpline page says it was last updated on 6 December 2024. Even a "verified" contact is only as current as the office's own website on the day we checked.
+- **Collector names change.** Some names on `tn.gov.in` already differ from the district sites (for example Theni and Tiruppur). Thambi stores the **office**, not the person; names are notes only.
+- **Ward boundaries are not loaded yet.** The open ward map we plan to use is from 2022, and many Chennai wards were redrawn. It will be checked against the current ward map before any report is matched to a ward.
+- **Schools and hospitals are not loaded yet.** The "near a school or hospital" danger boost has no effect until they are.
+- **Routing rules are still being written.** Which office handles which problem will be based on each department's published duties, and every rule will cite its source.
+- **AI severity is a reading of words, not a judgement of the photo.** In version 1 the AI reads the citizen's description only. It can be wrong. The citizen's own rating is always stored and shown next to it, and a person reviews anything the AI isn't confident about.
+- **Problem-size facts come from news reports** (2023–2024). They are cited as news, not as official statistics.
+- **Demo reports are the founder's own.** Seed reports are real problems photographed by the founder and labelled that way. Nothing invented is presented as real.
+
+Found something wrong? Open an issue with the **Wrong authority contact** template and link an official source.
 
 ---
 
