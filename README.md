@@ -336,26 +336,71 @@ The first target is **100 users**, which keeps every service within its free tie
 
 ## Roadmap
 
-- [x] Problem research and idea documents
-- [x] Data plan and source research
-- [ ] Authority directory extracted and verified
-- [ ] Database schema and security rules
-- [ ] Report form with AI reading of the description
-- [ ] Duplicate detection pop-out and "Me too"
-- [ ] Feed, map, priority score
-- [ ] Routing and complaint letter
-- [ ] Tamper-proof status and Fixed tab
-- [ ] Moderation and bot protection
-- [ ] Tamil interface
-- [ ] Testing with real users
-- [ ] Demo video and hackathon submission (deadline 22 November 2026)
+**Live preview:** [thambi-ten.vercel.app](https://thambi-ten.vercel.app) (coming-soon page while the core is built)
+
+🟢 Done &nbsp;·&nbsp; 🟠 In progress &nbsp;·&nbsp; ⚪ Not started
+
+| | Milestone |
+|---|---|
+| 🟢 | Problem research and idea documents |
+| 🟢 | Data plan and source research |
+| 🟢 | Project setup: app, database, hosting |
+| 🟠 | Authority directory extracted and verified |
+| ⚪ | Database schema and security rules |
+| ⚪ | Report form with AI reading of the description |
+| ⚪ | Duplicate detection pop-out and "Me too" |
+| ⚪ | Feed, map, priority score |
+| ⚪ | Routing and complaint letter |
+| ⚪ | Tamper-proof status and Fixed tab |
+| ⚪ | Moderation and bot protection |
+| ⚪ | Tamil interface |
+| ⚪ | Testing with real users |
+| ⚪ | Demo video and hackathon submission (deadline 22 November 2026) |
+
+<details>
+<summary><b>Progress log — click to see what has been done so far</b> (last updated 15 November 2026)</summary>
+
+<br>
+
+### 🟢 Problem research and idea documents
+
+- Read the IDEA//FORGE brief (Track 1, Problem 2) from the organisers' point of view.
+- Wrote three planning documents: the original idea in the founder's own words, the developed approach, and the technical plan. See [Documents](#documents).
+- Decided version 1 scope: AI reads the citizen's words and votes, not photos or videos; voice input cut; privacy blur, monsoon mode and ward report cards planned for later.
+
+### 🟢 Data plan and source research
+
+- Listed the 11 kinds of data Thambi needs and how trustworthy each must be (Tiers A–D). See [Data](#data).
+- Found the official Government of Tamil Nadu contact pages on `tn.gov.in`, and confirmed that popular unofficial contact lists are not government sources (used as leads only).
+- Studied how Chennai's existing complaint channels work in practice from news reports and residents' accounts, to find the gaps Thambi fills.
+- Found an open ward-boundary source (OpenCity, 2022) to map a report's pin to its ward.
+
+### 🟢 Project setup: app, database, hosting
+
+- Next.js + TypeScript + Tailwind app created, with an English and Tamil coming-soon page.
+- Folder structure in place: `app/`, `components/`, `lib/` (supabase, ai, geo), `data/`, `scripts/`, `supabase/migrations/`, `tests/`.
+- Supabase project created in Mumbai (ap-south-1). First migration turns on PostGIS (maps and location) and pgvector (duplicate search). Security advisor: no issues.
+- Deployed on Vercel and connected to this repository, so every push deploys. Live link checked while logged out.
+- Public database settings added to Vercel. Secret keys are kept out of git and set only in Vercel's environment settings.
+
+### 🟠 Authority directory extracted and verified
+
+- Saved the official `tn.gov.in` helpline and District Collector pages once, with the date.
+- `scripts/extract_authorities.py` reads them with plain code (no AI) and writes **46 rows** to [`data/authorities.csv`](data/authorities.csv): 8 helplines and 38 District Collectors, each with its source link, download date and the page's own "last updated" date.
+- Checked every phone number and email back against its source page: **0 mismatches**.
+- 7 Collector numbers are published without an STD code and are marked incomplete.
+- **Next:** cross-check each row against the department's own website (Chennai Corporation zones, Metro Water area offices, Pollution Control Board, electricity, Metro Rail, Highways), then mark rows `verified`. Only verified rows are used for routing.
+
+</details>
 
 **After the hackathon**
 
-- [ ] Monsoon mode
-- [ ] Privacy blur for faces and number plates
-- [ ] Ward report cards
-- [ ] AI reading of photos and videos (version 2)
+| | Feature |
+|---|---|
+| ⚪ | Monsoon mode |
+| ⚪ | Privacy blur for faces and number plates |
+| ⚪ | Ward report cards |
+| ⚪ | AI reading of photos and videos (version 2) |
 
 ## Documents
 
