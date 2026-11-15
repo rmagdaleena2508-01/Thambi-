@@ -57,7 +57,7 @@ sends it to the office that must fix it, and keeps it public until it is fixed.
 
 Thambi is a website where citizens report civic problems — damaged roads, open pits, water leaks, sewage overflow, garbage, pollution — using photos and short videos. It:
 
-- **rates how serious each problem is**, using both the citizen's own judgement and an AI that looks at the photos, video and description;
+- **rates how serious each problem is**, using the citizen's own judgement, an AI that reads their description, and their neighbours' votes (photos and videos are evidence for people; AI reading of images comes in version 2);
 - **finds reports of the same problem nearby** while the citizen is still typing, so they can add their support instead of filing a duplicate;
 - **sends it to the right authority** — the Corporation, Metro Water, the Pollution Control Board, Highways, Metro Rail — with a ready-to-send complaint;
 - **shows a public dashboard of complaints and fixes**, as simple to scroll as a social media feed, in Tamil and English.
@@ -122,10 +122,10 @@ Thambi **sits on top of them**. It turns a citizen's report into one clean, evid
  ───────                     ──────                                  ─────────
  1. Pick problem type   ──►  knows the category
  2. Drop a map pin      ──►  knows the exact place and ward
- 3. Add photos / video  ──►  AI checks the media shows the problem
- 4. Describe it         ──►  AI finds similar reports nearby
+ 3. Add photos / video  ──►  stored as evidence for people
+ 4. Describe it         ──►  AI reads it, finds similar reports nearby
                              "23 neighbours reported this. Add your Me too?"
- 5. How long? How bad?  ──►  priority score = AI severity + citizen severity
+ 5. How long? How bad?  ──►  priority score = text severity + citizen severity
     Who is affected?          + support + danger + age
  6. Confirm             ──►  routes to the right office  ─────────►  official channel
                              writes a formal complaint               (portal / helpline / email)
@@ -139,7 +139,7 @@ Thambi **sits on top of them**. It turns a citizen's report into one clean, evid
 | Feature | Status |
 |---|---|
 | Strategic 8-step report form (one question per screen) | Planned |
-| AI understanding of photos, video frames and text | Planned |
+| AI reading of the citizen's description (Tamil, English, Tanglish) | Planned |
 | Pop-out duplicate detection while typing | Planned |
 | "Me too" support button (one per person) | Planned |
 | Priority score with a visible "Why this rank?" | Planned |
@@ -149,6 +149,10 @@ Thambi **sits on top of them**. It turns a citizen's report into one clean, evid
 | Tamper-proof status history | Planned |
 | Fake report, abuse, false vote and bot detection | Planned |
 | Tamil and English interface | Planned |
+| Privacy blur for faces and number plates | Later |
+| Monsoon mode (extra danger boost in heavy rain) | Later |
+| Ward report card | Later |
+| AI reading of photos and videos | Version 2 |
 
 ---
 
@@ -166,7 +170,7 @@ This section lists every piece of data Thambi needs, how we will get it, how tru
 | 4 | **Road ownership** — which roads are Corporation roads, state highways, or under metro works | So a highway pothole isn't sent to the Corporation |
 | 5 | **Official service standards** — for example, the time within which a pothole should be filled after a complaint | To show when a report is overdue |
 | 6 | **Seed reports** — real photos and videos of real problems on the founder's own routes | For the public feed and the demo |
-| 7 | **AI test set** — about 20 labelled photos, 10 duplicate pairs, 10 non-duplicate pairs | To check severity and duplicate detection actually work |
+| 7 | **AI test set** — about 20 labelled descriptions, 10 duplicate pairs, 10 non-duplicate pairs | To check severity and duplicate detection actually work |
 | 8 | **Sensitive places** — schools and hospitals | To raise the priority of dangers near them |
 | 9 | **Tamil interface text** | For the Tamil/English switch |
 | 10 | **Moderation test comments** in Tamil, Tanglish and English | To test the abuse filter |
@@ -268,7 +272,7 @@ Thambi holds two kinds of sensitive things: **people's reports** (photos, places
 - **We collect only what a report needs:** a display name, the report, its location, and its photos or video.
 - **Email addresses are never public.**
 - **Photo GPS and time are removed** from the public copy. The original values are kept privately only to check that a photo was taken where it claims.
-- **Faces and number plates** in photos are blurred before public display (planned).
+- **Faces and number plates** in photos will be blurred before public display (later version).
 - **No personal numbers of officials** are stored — only official office channels.
 - **AI is a helper, not a judge.** Every automated flag — fake report, abusive comment, suspicious votes — is shown to a person with its reason. A person makes the final call.
 - **What people write is treated as data, never as instructions** to the AI, so nobody can talk the system into a higher rating.
@@ -287,7 +291,7 @@ To report a security issue, see [SECURITY.md](SECURITY.md).
 | Database | Supabase Postgres with PostGIS (location) and pgvector (meaning search) |
 | Sign-in | Supabase Auth (Google sign-in, email magic link) |
 | Storage | Supabase Storage |
-| AI | A Gemini multimodal model and a text-embedding model |
+| AI | A Gemini model on text only in version 1, and a text-embedding model |
 | Maps | Leaflet with OpenStreetMap |
 | Bot protection | Cloudflare Turnstile |
 | Languages | next-intl (Tamil, English) |
@@ -301,7 +305,7 @@ The first target is **100 users**, which keeps every service within its free tie
 - [x] Data plan and source research
 - [ ] Authority directory extracted and verified
 - [ ] Database schema and security rules
-- [ ] Report form with AI understanding
+- [ ] Report form with AI reading of the description
 - [ ] Duplicate detection pop-out and "Me too"
 - [ ] Feed, map, priority score
 - [ ] Routing and complaint letter
