@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Isometric road with a pothole">
+  <circle cx="100" cy="100" r="92" fill="#FCE7A3"/>
+  <path d="M100 46l72 40-72 40-72-40z" fill="#CBD5E1"/>
+  <path d="M28 86v34l72 40v-34z" fill="#94A3B8"/>
+  <path d="M172 86v34l-72 40v-34z" fill="#64748B"/>
+  <path d="M100 96l30 17-30 17-30-17z" fill="#334155"/>
+  <path d="M100 103l16 9-16 9-16-9z" fill="#0F172A" opacity="0.6"/>
+  <path d="M146 40l12 22h-24z" fill="#F2A900"/>
+  <rect x="144.5" y="50" width="3" height="8" fill="#0F172A"/>
+  <circle cx="146" cy="60.5" r="1.6" fill="#0F172A"/>
+</svg>

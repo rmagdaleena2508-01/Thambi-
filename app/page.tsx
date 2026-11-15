@@ -11,23 +11,26 @@ const CONTACT_ISSUE = `${GITHUB}/issues/new?template=wrong-authority-contact.md`
 
 const problems = [
   {
+    sticker: "/stickers/water-leak.svg",
     title: "Closed without a fix",
     body: "A water complaint was closed with a note that a drain must be built first. The road was never checked.",
   },
   {
+    sticker: "/stickers/pothole.svg",
     title: "Passed between offices",
     body: "A road can sit between the Corporation, Metro Water and Metro Rail. Nobody says whose it is.",
   },
   {
+    sticker: "/stickers/verified-seal.svg",
     title: "No way to see what happened",
     body: "Citizens rarely see whether their pothole was fixed. Only the office knows.",
   },
 ];
 
 const steps = [
-  { title: "Report", body: "Pick the problem, drop a pin on the map, describe it in plain words, and send." },
-  { title: "Neighbours join", body: "Thambi finds reports of the same problem nearby, so people add their voice instead of filing a copy." },
-  { title: "The office gets it", body: "A formal complaint goes to the office that must act, with the public link and the count of who is affected." },
+  { sticker: "/stickers/report-pin.svg", title: "Report", body: "Pick the problem, drop a pin on the map, describe it in plain words, and send." },
+  { sticker: "/stickers/neighbours.svg", title: "Neighbours join", body: "Thambi finds reports of the same problem nearby, so people add their voice instead of filing a copy." },
+  { sticker: "/stickers/verified-seal.svg", title: "The office gets it", body: "A formal complaint goes to the office that must act, with the public link and the count of who is affected." },
 ];
 
 const visitors = [
@@ -88,8 +91,9 @@ export default function Home() {
       </header>
 
       <main id="main" className="flex-1">
-        {/* 1. Hero */}
-        <section className="mx-auto w-full max-w-[1120px] px-5 pb-20 pt-20 sm:pt-28">
+        {/* 1. Hero: a faint street grid, the civic map, behind the text */}
+        <section className="city-grid relative mx-auto w-full px-5 pb-20 pt-20 sm:pt-28">
+          <div className="mx-auto w-full max-w-[1120px]">
           <Reveal>
             <p className="text-[15px] font-medium text-ink-64">Tamil Nadu · Civic problems, kept public</p>
             <h1 className="heading-grad mt-4 max-w-[680px] text-[clamp(44px,8vw,72px)] font-semibold leading-[1.0] tracking-[-0.03em]">
@@ -109,6 +113,7 @@ export default function Home() {
               31 of 50 official contacts checked against each office&apos;s own website. Last checked 15 November 2026.
             </p>
           </Reveal>
+          </div>
         </section>
 
         {/* 2. A report, in plain words */}
@@ -168,7 +173,7 @@ export default function Home() {
           <ul className="mt-12 grid gap-4 md:grid-cols-3">
             {problems.map((p) => (
               <li key={p.title}><Reveal className="surface rounded-[18px] p-6">
-                <WarningCircle size={26} weight="duotone" className="text-[var(--danger)]" aria-hidden />
+                <img src={p.sticker} alt="" width={56} height={56} className="h-14 w-14" />
                 <h3 className="mt-4 text-[20px] font-semibold leading-snug">{p.title}</h3>
                 <p className="mt-2 text-[16px] leading-[1.6] text-ink-72">{p.body}</p>
               </Reveal></li>
@@ -256,7 +261,8 @@ export default function Home() {
           <ol className="mt-12 grid gap-4 md:grid-cols-3">
             {steps.map((s, i) => (
               <li key={s.title}><Reveal className="surface rounded-[18px] p-6">
-                <span className="tabular flex h-9 w-9 items-center justify-center rounded-full bg-[var(--accent)] text-[15px] font-semibold text-white">
+                <img src={steps[i].sticker} alt="" width={64} height={64} className="h-16 w-16" />
+                <span className="tabular mt-4 inline-flex h-7 min-w-7 items-center justify-center rounded-full bg-[var(--accent)] px-2 text-[14px] font-semibold text-white">
                   {i + 1}
                 </span>
                 <h3 className="mt-5 text-[20px] font-semibold">{s.title}</h3>

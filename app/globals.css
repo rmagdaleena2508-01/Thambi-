@@ -184,3 +184,6 @@ p { text-wrap: pretty; }
 .sev-3 { color: #b45309; background: #fef3c7; }
 .sev-4 { color: #c2410c; background: #ffedd5; }
 .sev-5 { color: #b42318; background: #fee4e2; }
+
+/* City grid texture: faint streets behind the hero. */
+.city-grid { background-image: url("/stickers/city-grid.svg"); background-repeat: repeat; }
