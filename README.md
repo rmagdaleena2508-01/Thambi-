@@ -390,13 +390,13 @@ The first target is **100 users**, which keeps every service within its free tie
 | 🟢 | Project setup: app, database, hosting |
 | 🟢 | Authority directory extracted and verified |
 | 🟢 | Database schema and security rules |
-| ⚪ | Report form with AI reading of the description |
-| ⚪ | Duplicate detection pop-out and "Me too" |
+| 🟠 | Report form with AI reading of the description |
+| 🟠 | Duplicate detection pop-out and "Me too" |
 | ⚪ | Feed, map, priority score |
 | ⚪ | Routing and complaint letter |
 | ⚪ | Tamper-proof status and Fixed tab |
 | ⚪ | Moderation and bot protection |
-| ⚪ | Tamil interface |
+| 🟠 | Tamil interface |
 | ⚪ | Testing with real users |
 | ⚪ | Demo video and hackathon submission (deadline 22 November 2026) |
 
@@ -404,6 +404,21 @@ The first target is **100 users**, which keeps every service within its free tie
 <summary><b>Progress log — click to see what has been done so far</b> (last updated 15 November 2026)</summary>
 
 <br>
+
+### 🟠 Report form, AI reading, pop-out and "Me too"
+
+**Built and tested end to end in the browser:**
+
+- **8-step report form** at `/report/new`, one question per screen: problem type → map pin (move the map under a fixed pin, or use your location; road and area fill in automatically) → up to 4 photos and a 30-second video → description → how long → how serious (choosing "danger right now" shows the 112 / 101 emergency numbers) → who is affected → check and send.
+- **English and Tamil** switch on every screen. The draft is saved on the device, so a refresh or signing in never loses a report.
+- **The pop-out agent:** after about 15 words, Thambi shows matching open reports nearby. One tap adds a "Me too" instead of a duplicate. Tested: it found a nearby test report 8 m away, and the support count and priority rose.
+- **Keyword danger check inside the database:** Tamil, Tanglish and English danger words (for example *pallam*, பள்ளம், "current wire", "school") set danger flags and a minimum severity, even without AI, and can't be faked by the client.
+- **AI reading of the words only** (never photos), with a strict output format and the citizen's text treated as data, never as instructions. Falls back to the keyword check if the AI is unavailable.
+- **After sending, the server** reads the report, stores its meaning for duplicate search, makes clean public copies of photos (resized, all metadata removed), flags photos reused from other reports, and only puts a report live when the AI is confident it is real — everything else waits for a moderator.
+- **Sign-in** with an email link or Google; no passwords. Anyone can fill in the form; sign-in is needed only to send.
+- **Security re-checked:** people can only record media inside their own private folder, for their own new report; attempts on other paths or other people's reports are refused.
+
+**Why it is still orange:** the AI and automatic publishing switch on once the server key and AI key are added to the hosting settings; until then reports are read with the keyword check and wait for review. Email sign-in links also need the site address set in the sign-in settings. See [Data cautions](#65-data-cautions-and-known-gaps).
 
 ### 🟢 Problem research and idea documents
 
