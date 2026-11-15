@@ -1,13 +1,10 @@
 @import "tailwindcss";
 
-/* Design DNA "Quiet Craft" tokens, adapted for Thambi:
-   - Noto Sans / Noto Serif instead of Instrument Sans / Source Serif.
-   - 18px base text for elderly readers (Technical Plan §13.3).
-   - Primary action is the dark button (highest contrast); blue marks selection and links. */
+/* Thambi tokens. White page, Geist everywhere (Stick It Up's typeface), one accent. */
 :root {
-  --bg: #f2f2f2;
+  --bg: #ffffff;
   --surface: #ffffff;
-  --surface-2: #f9f9f9;
+  --surface-2: #f7f7f7;
   --ink: #111111;
   --ink-85: rgba(17, 17, 17, 0.85);
   --ink-72: rgba(17, 17, 17, 0.72);
@@ -25,30 +22,9 @@
     0 30px 60px -40px rgba(17, 24, 39, 0.25);
   --shadow-pill: 0 0 0 1px rgba(17, 17, 17, 0.07), 0 1px 2px 0 rgba(17, 17, 17, 0.04);
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0e0e0e;
-    --surface: #161616;
-    --surface-2: #1d1d1d;
-    --ink: #f2f2f2;
-    --ink-85: rgba(242, 242, 242, 0.85);
-    --ink-72: rgba(242, 242, 242, 0.72);
-    --ink-64: rgba(242, 242, 242, 0.66);
-    --ink-50: #9a9a9a;
-    --btn-dark: #f2f2f2;
-    --btn-dark-text: #111111;
-    --accent: #4aa8ff;
-    --accent-tint: rgba(74, 168, 255, 0.14);
-    --danger: #ff8a7a;
-    --danger-tint: rgba(255, 138, 122, 0.12);
-    --ring: rgba(242, 242, 242, 0.08);
-    --ring-strong: rgba(242, 242, 242, 0.14);
-    --shadow-card: 0 0 0 1px rgba(242, 242, 242, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.3),
-      0 30px 60px -40px rgba(0, 0, 0, 0.6);
-    --shadow-pill: 0 0 0 1px rgba(242, 242, 242, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  }
+  --ease-soft: cubic-bezier(0.32, 0.72, 0, 1);
+  --font-geist: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-geist-mono: "Geist Mono", ui-monospace, monospace;
 }
 
 @theme inline {
@@ -64,21 +40,24 @@
   --color-accent-tint: var(--accent-tint);
   --color-danger: var(--danger);
   --color-danger-tint: var(--danger-tint);
-  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-serif), ui-serif, Georgia, serif;
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
   font-size: 18px;
-  line-height: 1.5;
+  line-height: 1.55;
+  overflow-x: hidden;
 }
 
 h1, h2, h3 { text-wrap: balance; }
@@ -89,16 +68,24 @@ p { text-wrap: pretty; }
   outline-offset: 2px;
 }
 
+/* Skip link for keyboard users. */
+.skip {
+  position: fixed; left: 16px; top: 16px; z-index: 1000;
+  padding: 10px 14px; border-radius: 10px; background: var(--btn-dark); color: var(--btn-dark-text);
+  transform: translateY(-200%); transition: transform 160ms var(--ease-out);
+}
+.skip:focus { transform: translateY(0); }
+
 /* Surfaces: depth by light, not lines. */
 .surface { background: var(--surface); box-shadow: var(--shadow-card); }
 .pill { box-shadow: var(--shadow-pill); }
 
-/* Buttons: 48px tall, press feedback, no transition:all. */
+/* Buttons: 48px+ tall, press feedback, exact transition properties. */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   min-height: 52px; padding: 0 24px; border-radius: 12px;
-  font-weight: 500; font-size: 17px;
-  transition: transform 160ms var(--ease-out), background-color 160ms ease, opacity 160ms ease;
+  font-weight: 600; font-size: 17px;
+  transition: transform 160ms var(--ease-out), background-color 160ms ease, opacity 160ms ease, color 160ms ease;
   -webkit-tap-highlight-color: transparent;
 }
 .btn:active:not(:disabled) { transform: scale(0.96); }
@@ -112,7 +99,7 @@ p { text-wrap: pretty; }
   .btn-quiet:hover { color: var(--ink); }
 }
 
-/* Choice tiles and chips. Selected state = accent ring + tint + check (never colour alone). */
+/* Choice tiles and chips. Selected = accent ring + tint + check (never colour alone). */
 .choice {
   position: relative; text-align: left; background: var(--surface); box-shadow: var(--shadow-pill);
   border-radius: 14px; transition: transform 160ms var(--ease-out), box-shadow 160ms ease, background-color 160ms ease;
@@ -133,7 +120,28 @@ p { text-wrap: pretty; }
 
 .tabular { font-variant-numeric: tabular-nums; }
 
-/* Step entrance: short rise, once per step. */
+/* Entrance: rise and unblur once as a section enters view (Stick It Up pattern). */
+.reveal {
+  opacity: 0; transform: translate3d(0, 24px, 0); filter: blur(6px);
+  transition: opacity 800ms var(--ease-soft), transform 800ms var(--ease-soft), filter 800ms var(--ease-soft);
+}
+.reveal.in { opacity: 1; transform: none; filter: blur(0); }
+
+/* Tagline reveal: each word starts muted, then lights up in reading order. */
+.word {
+  color: color-mix(in srgb, var(--ink) 26%, transparent);
+  transition: color 600ms var(--ease-soft);
+}
+.word.on { color: var(--ink); }
+
+/* Heading gradient, text only (landing-page-design B5, light theme). */
+.heading-grad {
+  background: linear-gradient(90deg, #000000 0%, #666666 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+
+/* Step entrance for the report form. */
 .rise { animation: rise 260ms var(--ease-out) both; }
 @keyframes rise { from { opacity: 0; transform: translate3d(0, 8px, 0); } to { opacity: 1; transform: none; } }
 
@@ -142,7 +150,10 @@ p { text-wrap: pretty; }
 @keyframes popout { from { opacity: 0; transform: translate3d(0, 6px, 0) scale(0.98); } to { opacity: 1; transform: none; } }
 
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   .rise, .popout { animation: fade 150ms ease both; }
+  .reveal { opacity: 1; transform: none; filter: none; transition: none; }
+  .word { transition: none; }
   .btn:active:not(:disabled), .choice:active { transform: none; }
 }
 @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
@@ -150,4 +161,4 @@ p { text-wrap: pretty; }
 /* Leaflet sits inside a rounded surface. */
 .leaflet-container { font-family: inherit; border-radius: 14px; }
 .photo-outline { outline: 1px solid oklch(0 0 0 / 0.1); outline-offset: -1px; }
-@media (prefers-color-scheme: dark) { .photo-outline { outline-color: oklch(1 0 0 / 0.1); } }
+.photo-outline:not(:root) { outline-color: oklch(0 0 0 / 0.1); }
