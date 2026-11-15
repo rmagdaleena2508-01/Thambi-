@@ -345,7 +345,7 @@ The first target is **100 users**, which keeps every service within its free tie
 | 🟢 | Problem research and idea documents |
 | 🟢 | Data plan and source research |
 | 🟢 | Project setup: app, database, hosting |
-| 🟠 | Authority directory extracted and verified |
+| 🟢 | Authority directory extracted and verified |
 | 🟢 | Database schema and security rules |
 | ⚪ | Report form with AI reading of the description |
 | ⚪ | Duplicate detection pop-out and "Me too" |
@@ -383,15 +383,13 @@ The first target is **100 users**, which keeps every service within its free tie
 - Deployed on Vercel and connected to this repository, so every push deploys. Live link checked while logged out.
 - Public database settings added to Vercel. Secret keys are kept out of git and set only in Vercel's environment settings.
 
-### 🟠 Authority directory extracted and verified
+### 🟢 Authority directory extracted and verified
 
-- Saved the official `tn.gov.in` helpline and District Collector pages once, with the date.
-- `scripts/extract_authorities.py` reads them with plain code (no AI) and writes **46 rows** to [`data/authorities.csv`](data/authorities.csv): 8 helplines and 38 District Collectors, each with its source link, download date and the page's own "last updated" date.
-- Checked every phone number and email back against its source page: **0 mismatches**.
-- 7 Collector numbers are published without an STD code and are marked incomplete.
-- All 46 rows are loaded into the database through a generated, repeatable SQL file (`supabase/seed/authorities.sql`). The public can read them; nobody can change them through the app.
-- One row needs attention: Mayiladuthurai's dial number borrows an STD code from a fax number that appears to belong to another district.
-- **Next:** cross-check each row against the department's own website (Chennai Corporation zones, Metro Water area offices, Pollution Control Board, electricity, Metro Rail, Highways), then mark rows `verified`. Only verified rows are used for routing.
+- Saved the official `tn.gov.in` helpline and District Collector pages once, with the date. `scripts/extract_authorities.py` reads them with plain code (no AI): 46 rows, each with its source link, download date and the page's own "last updated" date. Every value matched back to its source page: **0 copy errors**.
+- **Cross-checked against each office's own website** with `scripts/verify_authorities.py`. A contact is *verified* only when the office's own site shows the same number and email; when two official sources disagree it is marked *uncertain* with both values noted. Only verified contacts are used for routing.
+- **District Collectors (38):** emails 38/38 match; phones 24 match (5 missing STD codes filled in from district sites); 14 uncertain. Mayiladuthurai's number on `tn.gov.in` was confirmed wrong. Official mobile numbers listed on district sites are not stored, by policy.
+- **Departments:** Chennai Corporation 1913 and Metro Water 044-4567 4567 verified on their own sites. Electricity's own site lists 94987 94987 rather than 1912. Added four offices from their own websites: electricity power-failure line, Pollution Control Board, Chennai Metro Rail, and the State Highways Namma Saalai app.
+- **Result: 50 contacts — 31 verified, 14 uncertain, 5 not yet checkable.** Every contact Thambi needs for Chennai routing is verified. Loaded into the database; full report in [`data/VERIFICATION.md`](data/VERIFICATION.md).
 
 ### 🟢 Database schema and security rules
 
