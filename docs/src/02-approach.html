@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Thambi — The Approach</title>
+<link rel="stylesheet" href="doc.css"></head>
+<body>
+
+<section class="cover">
+  <div class="kicker">IDEA//FORGE Online Hackathon · Track 1 · Problem 2</div>
+  <h1>Thambi</h1>
+  <p class="sub">Building on the idea: how we win this</p>
+  <hr>
+  <div class="meta">
+    Document 2 of 3 — The approach<br>
+    Builds on Document 1 (the original idea)<br>
+    Drafted 15 November 2026
+  </div>
+</section>
+
+<p class="label">What this document does</p>
+<p>Document 1 is the idea as I first said it. This document keeps every part of that idea and builds on it: first by reading the brief the way the organisers and judges will read it, then by turning each feature into something concrete we can build and demo by 22 November. Where I add something new, it is marked <span class="tag">New</span>. Where I suggest changing something, I say why.</p>
+
+<ol class="toc">
+  <li>Reading the brief like the organisers</li>
+  <li>What a top-3 project looks like here</li>
+  <li>The one-line pitch and the problem statement</li>
+  <li>Who Thambi is for</li>
+  <li>How Thambi works, end to end</li>
+  <li>Features (developed)</li>
+  <li>Ideas (developed)</li>
+  <li>To be developed</li>
+  <li>Add-on features</li>
+  <li>What we will not build (and why that helps)</li>
+  <li>The demo and the submission</li>
+  <li>The week plan</li>
+</ol>
+
+<hr class="major">
+<h2>1. Reading the brief like the organisers</h2>
+<p>The problem statement is one sentence, but it hides three verbs. Every judge will check the build against these three, in this order:</p>
+<table>
+  <tr><th style="width:22%">The brief says</th><th>What they will look for in the demo</th></tr>
+  <tr><td><b>"rates how serious each problem is"</b></td><td>An AI that actually looks at the photo, video and text and gives a severity with a reason — not a dropdown the user fills in. The citizen's rating is valuable, but on its own it is "AI as decoration".</td></tr>
+  <tr><td><b>"sends it to the right authority"</b></td><td>A clear, correct answer to "which office handles this?" — Corporation, Metro Water, Pollution Control Board, Highways, Metro Rail — with a ready-to-send complaint. Wrong routing is the fastest way to lose a civic-tech judge.</td></tr>
+  <tr><td><b>"public dashboard of complaints and fixes"</b></td><td>The word <i>fixes</i> matters. Most teams will show a list of complaints. Very few will show proof that something got fixed. That gap is our opening.</td></tr>
+</table>
+<p>The track line adds a fourth expectation: <i>"Make public information easier to find, government services easier to use."</i> So the judges also want it simple enough for anyone, and ideally in the local language.</p>
+
+<h3>What the participation guide is really telling us</h3>
+<ul>
+  <li><b>"Use AI in a meaningful way, not just as decoration."</b> This is the judging filter. Every AI step in Thambi must change an outcome: the severity, the routing, the duplicate merge, the moderation.</li>
+  <li><b>"Make sure you can explain who faces the problem."</b> The Readiness Check literally flags a problem statement without a <i>who</i>. Ours names them (Section 4).</li>
+  <li><b>"An MVP link that cannot be opened."</b> They will open the link in a private window. It must work without signing in to <i>see</i> the dashboard, and sign-in must take one tap.</li>
+  <li><b>"A missing demo video."</b> The video is not optional for a top-3 finish. It is where judges actually "use" the product.</li>
+  <li><b>"Credit any outside resources."</b> We list every model, library and map source on an About page and in the submission.</li>
+  <li><b>"Be ready to explain how you built it."</b> Expect a question about how severity is scored. We keep the scoring formula simple and visible (Section 6.3).</li>
+</ul>
+
+<hr class="major">
+<h2>2. What a top-3 project looks like here</h2>
+<p>Thinking as someone who has won a lot of these: problem statement 2 will be the most popular choice in Track 1. Many teams will submit "report form + Gemini rates severity + list page". To place in the top 3, Thambi has to be <b>obviously better on the things that are hard</b>, and look finished.</p>
+<ol>
+  <li><b>It is real.</b> Seed it with real reports from my own Sunday route — my photos, my road, my locality — clearly labelled as my own reports. A judge trusts one real pothole over fifty fake ones.</li>
+  <li><b>It closes the loop.</b> A report has a life: Reported → Verified → Sent → Acknowledged → Fixed → Confirmed by neighbours. "Fixed" needs an after-photo. That is the "fixes" half of the brief.</li>
+  <li><b>It merges duplicates while you type.</b> The pop-out agent (my idea in Document 1) is our signature moment. Nobody else will have it. It goes in the first 30 seconds of the demo.</li>
+  <li><b>It routes correctly, and explains why.</b> "This goes to Chennai Metro Water because it is a water main leak on a corporation road in Ward 1xx" — with the official contact and a ready letter.</li>
+  <li><b>It speaks Tamil.</b> <span class="tag">New</span> Tamil and English UI, and a citizen can write in Tamil or Tanglish. The track literally asks to make government easier to use; language is the biggest barrier.</li>
+  <li><b>It is hard to cheat.</b> One person, one vote; fake and abusive content gets flagged. Judges in civic tech always ask "what if people spam it?" We answer before they ask.</li>
+  <li><b>It shows a measurable difference.</b> The brief says "makes a measurable difference". We show numbers: duplicates merged, time from report to authority, % with photo evidence, issues confirmed fixed.</li>
+</ol>
+
+<hr class="major">
+<h2>3. The one-line pitch and the problem statement</h2>
+<h3>One line</h3>
+<blockquote><p>Thambi — tell Thambi, and it gets taken care of. Snap a broken road, a leaking pipe or a burning garbage pile; Thambi's AI checks it, rates how serious it is, joins it with your neighbours' reports, and sends it to the exact office that must fix it — in public, until it is fixed.</p></blockquote>
+
+<h3>Problem statement (for the submission form)</h3>
+<p>Commuters, two-wheeler riders, walkers, school children and elderly residents in Chennai face dug-up roads, open pits, water leaks and garbage that stay unfixed for months — especially around metro-rail and pipeline works. Complaints today are scattered across helplines, apps and social media; the same pothole gets reported fifty times, nobody knows which department owns it, and citizens never see whether anything was fixed. The result is wasted complaints, wrong departments, and real injuries during the monsoon.</p>
+
+<h3>Solution description (for the submission form)</h3>
+<p>Thambi is a website where citizens report civic problems with photos and short videos. An AI agent reads the description, looks at the media and the map location, rates severity with a stated reason, detects if neighbours already reported the same issue (and offers to add your support instead of a duplicate), and routes it to the responsible authority with a ready-to-send complaint. A public feed and dashboard show every complaint and every fix, ranked by a transparent priority score that combines AI severity, citizen severity, community support, danger and age.</p>
+
+<hr class="major">
+<h2>4. Who Thambi is for</h2>
+<table>
+  <tr><th style="width:25%">Who</th><th>What they need from Thambi</th></tr>
+  <tr><td>Daily commuters (two-wheelers, auto, bus)</td><td>Report in under a minute at a signal or after reaching. See if the road is getting fixed.</td></tr>
+  <tr><td>Elderly residents</td><td>Big text, Tamil, almost no typing. Supporting an existing report with one tap.</td></tr>
+  <tr><td>Parents of school children</td><td>Flag danger near schools; see it ranked higher.</td></tr>
+  <tr><td>Resident welfare associations</td><td>Collect support from the street and show one strong case to the ward office.</td></tr>
+  <tr><td>Ward officers and departments (later users)</td><td>One clean, de-duplicated, evidence-backed case instead of fifty angry calls.</td></tr>
+</table>
+
+<hr class="major">
+<h2>5. How Thambi works, end to end</h2>
+<ol>
+  <li><b>Report.</b> The citizen opens the site, picks what kind of problem it is, drops a pin (or uses their location), adds photos or a short video, and describes it.</li>
+  <li><b>Check for duplicates while typing.</b> The agent pops out if similar reports exist nearby. The citizen either supports the existing report or continues.</li>
+  <li><b>Understand.</b> The AI looks at the photos, video frames and text. It writes a clean title and summary (in English and Tamil), confirms the category, notes hazards it can see (open pit, exposed wire, standing water), and checks the media actually shows the problem.</li>
+  <li><b>Rate.</b> The citizen's severity and the AI's severity are both stored. The priority score combines them with support, danger and age.</li>
+  <li><b>Route.</b> Rules match the category and location to the authority. Thambi writes a formal complaint and shows the official channel to send it.</li>
+  <li><b>Show in public.</b> The report appears in the feed and on the map. Neighbours support it and comment.</li>
+  <li><b>Track to the fix.</b> Status changes are logged and can't be edited later. "Fixed" needs an after-photo; neighbours confirm it.</li>
+</ol>
+
+<hr class="major">
+<h2>6. Features (developed)</h2>
+
+<h3>6.1 Find out if someone already reported it</h3>
+<p><i>From Document 1:</i> the agent searches whether other people reported the same problem, and person 2 can support person 1.</p>
+<p><b>How we build it:</b> a report is a "possible duplicate" when it is (a) within about 250 metres, (b) the same category, (c) still open, and (d) its description means the same thing. Meaning is compared with AI text embeddings, so "big pit near the metro pillar" matches "deep pothole next to the metro construction" even with different words, or a mix of Tamil and English. Results show a thumbnail, the distance ("80 m from you"), how many people support it, and the status.</p>
+
+<h3>6.2 Support button (the YouTube-like vote)</h3>
+<p><i>From Document 1:</i> a small vote button like a YouTube like.</p>
+<p><b>Developed:</b> we call it <b>"Me too"</b> (Tamil: "எனக்கும்"). Rules: one per person per report; you can't support your own report; the count is public. When someone supports, we ask one optional question — "Do you pass here daily, weekly, or rarely?" — which tells the authority how many people are really affected. A "Me too" with a fresh photo counts as stronger evidence and refreshes the report's "last seen" date.</p>
+
+<h3>6.3 Ranking — locality and severity, plus four more</h3>
+<p><i>From Document 1:</i> segregate by locality and severity, and suggest more categories.</p>
+<p><b>Developed:</b> locality and severity stay as the two main ways to <i>filter</i>. To <i>rank</i>, we recommend these extra signals, in this order of importance:</p>
+<ol>
+  <li><b>Danger to life</b> — open pit, live wire, sewage overflow, near a school or hospital. Overrides everything.</li>
+  <li><b>Support count</b> — how many people say "Me too", and how often they pass there.</li>
+  <li><b>Age</b> — how long it has been open. Old, ignored problems rise.</li>
+  <li><b>Category</b> — road, water, sewage, garbage, streetlight, pollution (useful for routing and for filters).</li>
+</ol>
+<p>The <b>priority score</b> (0–100) is a simple, explainable mix:</p>
+<pre>Priority = 35% AI severity + 20% citizen severity + 20% support (log scale)
+         + 15% danger flags + 10% age (days open)</pre>
+<p>This solves the case from Document 1 directly: a "low severity" problem that 200 neighbours support will climb above a "high severity" problem with 2 supports, because support carries 20%. Every report card shows a "Why this rank?" line, e.g. <i>"Ranked high: 46 people affected, open 3 months, near a school."</i> Being explainable is what makes it trustworthy to a judge.</p>
+<p><b>Feed views:</b> Near me · Most urgent · Most supported · Oldest unfixed · Fixed recently. Filters: locality, category, severity, status.</p>
+
+<h3>6.4 Sending it to the right authority</h3>
+<p><i>From Document 1:</i> send to the right authority, highest priority first.</p>
+<p><b>Developed:</b> routing is a rule table, not a guess. The AI picks the category; the map pin gives the area; the table answers "who owns this?":</p>
+<table>
+  <tr><th>Problem</th><th>Usual authority in Chennai (to verify)</th></tr>
+  <tr><td>Potholes, damaged corporation roads, streetlights, garbage, stormwater drains</td><td>Greater Chennai Corporation — zone / ward office</td></tr>
+  <tr><td>Water main leaks, sewage overflow, roads dug for water/sewer work</td><td>Chennai Metro Water (CMWSSB)</td></tr>
+  <tr><td>Roads dug or blocked by metro construction</td><td>Chennai Metro Rail Ltd (CMRL)</td></tr>
+  <tr><td>State highways and major arterial roads</td><td>Tamil Nadu Highways Department</td></tr>
+  <tr><td>Air, water, noise pollution, garbage burning</td><td>Tamil Nadu Pollution Control Board</td></tr>
+  <tr><td>Exposed wires, fallen electric poles</td><td>Tamil Nadu electricity distribution utility</td></tr>
+</table>
+<p>For the hackathon, Thambi does <b>not</b> pretend to auto-send to government. It produces a formal complaint (with photos, location link, support count and report history) and shows the official channel — portal link, helpline, email — with a one-tap "Copy and send" / "Open portal". Status is then marked "Sent". This is honest, and judges respect honesty more than a fake integration. Highest-priority items appear first in a "Ready to send" queue.</p>
+
+<h3>6.5 Comments, with suggested words</h3>
+<p><i>From Document 1:</i> comments to strengthen a low-severity issue, with example comments.</p>
+<p><b>Developed:</b> under the comment box, three tap-to-use starters, chosen by the AI to fit the report: <i>"I face this every day on my way to work."</i> · <i>"This gets much worse when it rains."</i> · <i>"Children from the nearby school walk here."</i> The citizen can edit before posting. Every comment passes the abuse check (Section 9.2) before it shows.</p>
+
+<h3>6.6 Public dashboard of complaints and fixes</h3>
+<p><i>From Document 1:</i> as simple as scrolling Facebook, for young and old.</p>
+<p><b>Developed:</b> the home page <i>is</i> the feed — one big card per report, photo on top, plain words below, a coloured severity chip, the "Me too" button, and a status line. A second tab, <b>Fixed</b>, shows before-and-after photo pairs. A third, <b>Map</b>, shows pins coloured by severity. A small numbers strip on top: open issues, fixed this month, average days to fix, people who raised their voice. Big text, high contrast, Tamil/English switch at the top.</p>
+
+<hr class="major">
+<h2>7. Ideas (developed)</h2>
+<h3>The agent that pops out while you type</h3>
+<p><i>From Document 1:</i> while typing in the text box (3rd or 4th question), the agent recognises the text and offers to either let you finish or show you the similar reports to vote on.</p>
+<p><b>Developed:</b> the form asks <i>what</i> and <i>where</i> first, so by the time the citizen reaches the text box, Thambi already knows the category and location. After the citizen has typed about 15 words (and pauses for a moment), the agent checks. If it finds matches, a small panel slides up from the text box:</p>
+<blockquote><p>"Thambi found 2 reports like yours within 200 m. Is it one of these?"<br>
+[photo] Deep pit near metro pillar, 80 m away · 23 people · open 41 days · <b>[ Yes, add my Me too ]</b><br>
+[photo] Road dug for pipeline, 190 m away · 6 people · <b>[ Yes, add my Me too ]</b><br>
+<b>[ No, mine is different — continue ]</b></p></blockquote>
+<p>If they pick "Yes", their photos and words are added to the existing report as fresh evidence — nothing is lost. If they continue, Thambi keeps going and later links the two as "nearby". The panel never blocks typing, and it can be closed.</p>
+
+<hr class="major">
+<h2>8. To be developed</h2>
+
+<h3>8.1 The designer report form</h3>
+<p><i>From Document 1:</i> a strategic form so we understand the problem from the form itself; videos are visual evidence.</p>
+<p><b>Developed:</b> one question per screen, big buttons, a progress bar. The order is chosen so each answer makes the next step smarter:</p>
+<table>
+  <tr><th style="width:5%">#</th><th style="width:30%">Question</th><th>Why it is here</th></tr>
+  <tr><td>1</td><td>What is the problem? (picture tiles: Road · Water leak · Sewage · Garbage · Streetlight · Pollution · Other)</td><td>Gives the category for routing and duplicate search. Pictures work for anyone, in any language.</td></tr>
+  <tr><td>2</td><td>Where is it? (map pin from your location, then road name, locality, nearest landmark)</td><td>Exact spot for the map and for duplicates. Landmarks are how people in Chennai really give directions.</td></tr>
+  <tr><td>3</td><td>Add photos or a short video (up to 4 photos, 1 video up to 30 seconds)</td><td>Visual evidence. The AI checks it matches the category.</td></tr>
+  <tr><td>4</td><td>Tell us in your words (Tamil or English) — <i>the pop-out agent lives here</i></td><td>Description and duplicate check. Placed after what/where so the agent has context.</td></tr>
+  <tr><td>5</td><td>How long has it been like this? (days · weeks · months · over a year)</td><td>Age signal for priority.</td></tr>
+  <tr><td>6</td><td>How serious is it for you? (1 Annoying · 2 Slows me down · 3 Damages vehicles · 4 People could get hurt · 5 Danger right now)</td><td>The citizen's own severity check, in plain words, not just numbers.</td></tr>
+  <tr><td>7</td><td>Who gets affected? (walkers · two-wheelers · school children · elderly · shops · everyone)</td><td>Danger and reach signals.</td></tr>
+  <tr><td>8</td><td>Check and send — Thambi shows its summary, severity and the authority it will go to</td><td>The citizen sees and confirms what the AI understood. Builds trust.</td></tr>
+</table>
+<p>If question 6 is "Danger right now", Thambi also shows emergency numbers (112 / 101) — a website is not an emergency service, and we say so.</p>
+
+<h3>8.2 The authority database</h3>
+<p><i>From Document 1:</i> collect authority data from the internet and maintain a database.</p>
+<p><b>Developed:</b> start with Chennai only. For each authority: name, what it handles, area covered (zone/ward), official portal, helpline, email, and the date we last checked it. Every entry is checked by hand from the official website — no scraped numbers we haven't verified. Around 15–25 rows is enough for a strong demo. The table is read-only to the public.</p>
+
+<h3>8.3 Scale to the first 100 users, on a secure database</h3>
+<p><i>From Document 1:</i> scale to 100 users within the free limits on Vercel; secure database so no one can change it.</p>
+<p><b>Developed:</b> the free tiers of Vercel (hosting) and Supabase (database, sign-in, file storage) comfortably cover 100 users. The tight limit is file storage for videos, so we cap videos at 30 seconds and compress photos before upload. Security comes from the database itself: every table has rules saying who can read and who can write, so even if someone bypasses the website, the database refuses. Details are in Document 3.</p>
+
+<hr class="major">
+<h2>9. Add-on features</h2>
+
+<h3>9.1 Nobody can tamper with it</h3>
+<p><i>From Document 1:</i> no one can hack in and change something already fixed, or something not fixed.</p>
+<p><b>Developed:</b></p>
+<ul>
+  <li><b>Only the reporter</b> can edit their own report, and only within 15 minutes of posting.</li>
+  <li><b>Status can only be changed</b> by a verified moderator (and later, by officials). Ordinary users cannot change it at all — the database blocks it, not just the button.</li>
+  <li><b>Every status change is written to a history that can't be edited or deleted</b> — who changed it, when, with what proof. The history is public on each report.</li>
+  <li><b>"Fixed" needs proof:</b> an after-photo at the same spot. Then nearby supporters are asked, "Is it really fixed?" If enough say no, it reopens automatically.</li>
+</ul>
+
+<h3>9.2 Catching fake complaints, abusive comments, false votes and bots</h3>
+<p><i>From Document 1:</i> identify fake complaints, fake comments, abuse, false voting, and AI bot activity.</p>
+<table>
+  <tr><th style="width:22%">Threat</th><th>How Thambi catches it</th></tr>
+  <tr><td>Fake complaint</td><td>AI checks the photo really shows the stated problem; photo location and time (if the camera saved them) are compared with the pin; the same photo reused across reports or copied from the internet is detected by an image fingerprint. Low-confidence reports go to "Needs review" instead of the public feed.</td></tr>
+  <tr><td>Abusive or fake comments</td><td>Every comment is checked by AI for abuse, threats, personal attacks on named people, and spam, in Tamil and English, before it appears. Borderline ones wait for review. Users can report a comment.</td></tr>
+  <tr><td>False voting</td><td>Sign-in required; one "Me too" per account per report; brand-new accounts count less for the first day; sudden bursts of support on one report from new accounts are flagged.</td></tr>
+  <tr><td>Bots</td><td>A human check on sign-up and on posting, rate limits (e.g. at most 5 reports and 30 comments a day), and a hidden "honeypot" field bots fill but people never see.</td></tr>
+</table>
+<p>Every flag is shown to a moderator with the reason, so a real person makes the final call. AI suggests; people decide.</p>
+
+<h3>9.3 Further add-ons <span class="tag">New</span></h3>
+<ul>
+  <li><b>Privacy blur:</b> faces and number plates in photos blurred before the public sees them.</li>
+  <li><b>Monsoon mode:</b> during heavy rain, water-logging and open pits get an extra danger boost.</li>
+  <li><b>Ward report card:</b> a shareable page per ward — open issues, fixes, average days to fix.</li>
+  <li><b>Speak your complaint (later):</b> for elderly users, a Tamil voice-to-text option in the description box only. (Audio as evidence stays removed, as decided.)</li>
+</ul>
+
+<hr class="major">
+<h2>10. What we will not build (and why that helps)</h2>
+<ul>
+  <li><b>A mobile app.</b> Decided in Document 1: the website is our strength. It will still work beautifully on a phone browser.</li>
+  <li><b>Anonymous reports.</b> Decided in Document 1. Real accounts are also our strongest defence against fake votes.</li>
+  <li><b>Audio uploads.</b> Decided in Document 1. Video already carries voice.</li>
+  <li><b>Fake government integration.</b> We don't claim complaints reach officials automatically. We make sending them effortless and track them honestly.</li>
+  <li><b>All of India.</b> Chennai only for the MVP. Depth beats breadth.</li>
+</ul>
+
+<hr class="major">
+<h2>11. The demo and the submission</h2>
+<h3>The 2-minute demo video</h3>
+<ol>
+  <li><b>0:00–0:15</b> — My Sunday road. Real footage. "Every week, this road. Nobody knows who to tell."</li>
+  <li><b>0:15–0:50</b> — Report it on Thambi. Pick Road, pin, photo, start typing… the agent pops out: "23 people already reported this." Tap "Me too".</li>
+  <li><b>0:50–1:15</b> — A new problem: water leak. Show the AI summary, severity with reason, and "Goes to Chennai Metro Water" with the ready letter.</li>
+  <li><b>1:15–1:40</b> — The feed and map. "Why this rank?" A low-severity problem with many supporters rising. The Fixed tab with before/after.</li>
+  <li><b>1:40–2:00</b> — Trust: a spam comment blocked, a reused photo flagged, status history that can't be edited. Close on the numbers strip and the tagline.</li>
+</ol>
+
+<h3>Submission checklist</h3>
+<ul>
+  <li>Project name: Thambi.</li>
+  <li>Problem statement naming who faces it (Section 3).</li>
+  <li>Solution description (Section 3).</li>
+  <li>MVP link — tested in a private window, on a phone, on slow internet.</li>
+  <li>Demo video — under 3 minutes, captions on.</li>
+  <li>Credits: AI model, map tiles, libraries, hosting.</li>
+  <li>Run the Readiness Check, fix, re-run. Submit by 22 November afternoon, not at midnight.</li>
+</ul>
+
+<hr class="major">
+<h2>12. The week plan</h2>
+<table>
+  <tr><th style="width:20%">Day</th><th>Goal</th></tr>
+  <tr><td>Sat 15 – Sun 16 Nov</td><td>Finalise design. Collect real photos and videos on the Sunday route. Build the authority table for Chennai. Set up project, database, sign-in.</td></tr>
+  <tr><td>Mon 17 Nov</td><td>Report form end to end, media upload, AI understanding and severity.</td></tr>
+  <tr><td>Tue 18 Nov</td><td>Duplicate pop-out agent, Me too, feed, map.</td></tr>
+  <tr><td>Wed 19 Nov</td><td>Routing and complaint letter, status flow with locked history, Fixed tab, dashboard numbers.</td></tr>
+  <tr><td>Thu 20 Nov</td><td>Moderation (comments, fake detection, vote limits), Tamil UI, polish. Submissions open 6 PM.</td></tr>
+  <tr><td>Fri 21 Nov</td><td>Testing with 5–10 real people (family, classmates). Fix what confuses them. Record demo.</td></tr>
+  <tr><td>Sat 22 Nov</td><td>Readiness Check, final submission by afternoon. Buffer for surprises.</td></tr>
+</table>
+
+</body></html>
