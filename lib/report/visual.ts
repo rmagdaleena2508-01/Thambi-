@@ -1,7 +1,7 @@
 // Status and severity visuals: colour, icon and word always together.
 // Colours match design/UI_UX_PROMPT.md. Contrast checked (WCAG AA) per pair.
 import type { Icon } from "@phosphor-icons/react";
-import { Circle, SealCheck, PaperPlaneTilt, Clock, CheckCircle, ArrowCounterClockwise, Smiley, SmileyMeh, Car, FirstAid, Siren } from "@phosphor-icons/react";
+import { Circle, SealCheck, PaperPlaneTilt, Clock, CheckCircle, ArrowCounterClockwise, Smiley, SmileyMeh, Car, FirstAid, Siren } from "@phosphor-icons/react/dist/ssr";
 
 export type StatusKey = "reported" | "verified" | "sent" | "in_progress" | "fixed" | "reopened";
 export const STATUS: Record<StatusKey, { word: string; chip: string; icon: Icon }> = {
