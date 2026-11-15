@@ -1,9 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Two neighbours and a plus sign">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Two neighbours with a plus sign">
   <circle cx="100" cy="100" r="92" fill="#FCE7A3"/>
+  <ellipse cx="100" cy="162" rx="72" ry="12" fill="#0B5C5B" opacity="0.18"/>
   <circle cx="74" cy="82" r="22" fill="#0E7C7B"/>
-  <path d="M40 150c0-26 16-40 34-40s34 14 34 40z" fill="#0E7C7B"/>
+  <path d="M40 150c0-26 16-40 34-40s34 14 34 40z" fill="#0E7C7B" stroke="#0E7C7B" stroke-width="4" stroke-linejoin="round"/>
   <circle cx="128" cy="82" r="22" fill="#0B5C5B"/>
-  <path d="M94 150c0-26 16-40 34-40s34 14 34 40z" fill="#0B5C5B"/>
+  <path d="M94 150c0-26 16-40 34-40s34 14 34 40z" fill="#0B5C5B" stroke="#0B5C5B" stroke-width="4" stroke-linejoin="round"/>
   <circle cx="158" cy="44" r="16" fill="#F2A900"/>
   <path d="M158 36v16M150 44h16" stroke="#1F1400" stroke-width="4" stroke-linecap="round"/>
 </svg>

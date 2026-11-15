@@ -1,6 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Verified seal with tick">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Verified rosette seal with a tick">
   <circle cx="100" cy="100" r="92" fill="#EEF7F6"/>
-  <path d="M100 18l12 14 18-6 6 18 18 6-6 18 14 12-14 12 6 18-18 6-6 18-18-6-12 14-12-14-18 6-6-18-18-6 6-18-14-12 14-12-6-18 18-6 6-18 18 6z" fill="#0B5C5B"/>
+  <ellipse cx="100" cy="176" rx="50" ry="10" fill="#0B5C5B" opacity="0.18"/>
+  <path d="M100 18l12 14 18-6 6 18 18 6-6 18 14 12-14 12 6 18-18 6-6 18-18-6-12 14-12-14-18 6-6-18-18-6 6-18-14-12 14-12-6-18 18-6 6-18 18 6z" fill="#0B5C5B" stroke="#0B5C5B" stroke-width="4" stroke-linejoin="round"/>
   <circle cx="100" cy="100" r="46" fill="#FFFFFF"/>
   <path d="M80 100l14 14 26-28" fill="none" stroke="#0E7C7B" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

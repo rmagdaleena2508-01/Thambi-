@@ -1,11 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Isometric road with a pothole">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Isometric road with a pothole and a warning cone">
   <circle cx="100" cy="100" r="92" fill="#FCE7A3"/>
-  <path d="M100 46l72 40-72 40-72-40z" fill="#CBD5E1"/>
-  <path d="M28 86v34l72 40v-34z" fill="#94A3B8"/>
-  <path d="M172 86v34l-72 40v-34z" fill="#64748B"/>
-  <path d="M100 96l30 17-30 17-30-17z" fill="#334155"/>
-  <path d="M100 103l16 9-16 9-16-9z" fill="#0F172A" opacity="0.6"/>
-  <path d="M146 40l12 22h-24z" fill="#F2A900"/>
-  <rect x="144.5" y="50" width="3" height="8" fill="#0F172A"/>
-  <circle cx="146" cy="60.5" r="1.6" fill="#0F172A"/>
+  <ellipse cx="100" cy="166" rx="72" ry="13" fill="#0B5C5B" opacity="0.18"/>
+  <path d="M100 46L172 86L100 126L28 86Z" fill="#CBD5E1" stroke="#CBD5E1" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M28 86L100 126V160L28 120Z" fill="#94A3B8" stroke="#94A3B8" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M100 126L172 86V120L100 160Z" fill="#64748B" stroke="#64748B" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M80 100L100 89L120 100L100 111Z" fill="#334155" stroke="#334155" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M146 40L160 66H132Z" fill="#F2A900" stroke="#F2A900" stroke-width="5" stroke-linejoin="round"/>
+  <rect x="126" y="66" width="40" height="7" rx="3.5" fill="#0F172A"/>
 </svg>

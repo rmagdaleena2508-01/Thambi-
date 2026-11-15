@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Pipe with a leaking drop">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Leaking pipe with a water drop">
   <circle cx="100" cy="100" r="92" fill="#BFE7E4"/>
-  <path d="M36 84h92v32H36z" fill="#94A3B8" transform="skewY(-14)"/>
-  <rect x="34" y="92" width="112" height="28" rx="14" fill="#64748B" transform="skewY(-14) translate(0,4)"/>
-  <rect x="34" y="92" width="112" height="28" rx="14" fill="#CBD5E1" transform="skewY(-14)"/>
-  <path d="M120 110c-14 0-26 20-26 32a26 26 0 0052 0c0-12-12-32-26-32z" fill="#0E7C7B"/>
-  <path d="M110 140a10 10 0 0010 10" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity="0.8"/>
-  <circle cx="152" cy="62" r="8" fill="#F2A900"/>
+  <ellipse cx="100" cy="166" rx="72" ry="13" fill="#0B5C5B" opacity="0.18"/>
+  <path d="M36 100L136 68L164 80L64 114Z" fill="#CBD5E1" stroke="#CBD5E1" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M64 114L164 80V104L64 138Z" fill="#94A3B8" stroke="#94A3B8" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M120 132c-11 15-15 23-15 29a15 15 0 0030 0c0-6-4-14-15-29z" fill="#0E7C7B"/>
+  <path d="M113 158a8 8 0 008 8" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+  <circle cx="160" cy="48" r="8" fill="#F2A900"/>
 </svg>

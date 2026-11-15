@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-  <path d="M0 24H48M24 0V48" stroke="#0E7C7B" stroke-width="1" fill="none" opacity="0.10"/>
-  <circle cx="24" cy="24" r="1.6" fill="#0E7C7B" opacity="0.22"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="55.43" viewBox="0 0 48 55.43" role="img" aria-label="Isometric grid tile">
+  <g stroke="#0E7C7B" stroke-width="1" fill="none" opacity="0.10">
+    <path d="M0 0L48 27.71M0 27.71L48 55.43"/>
+    <path d="M0 27.71L48 0M0 55.43L48 27.71"/>
+  </g>
 </svg>
