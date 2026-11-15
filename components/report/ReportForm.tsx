@@ -13,6 +13,7 @@ import {
   type Category, type Lang, type OpenSince,
 } from "@/lib/report/options";
 import { t } from "@/lib/report/strings";
+import { SEVERITY_VISUAL } from "@/lib/report/visual";
 import { compressPhoto, videoDuration, MAX_PHOTOS, MAX_VIDEO_BYTES, MAX_VIDEO_SECONDS } from "@/lib/report/media";
 import SimilarPanel, { type Match } from "./SimilarPanel";
 import type { LatLng } from "./MapPicker";
@@ -444,7 +445,7 @@ export default function ReportForm() {
         </div>
         <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-[var(--ring-strong)]">
           <div
-            className="h-full rounded-full bg-[var(--btn-dark)] transition-transform duration-300 ease-out"
+            className="h-full rounded-full bg-[var(--accent)] transition-transform duration-300 ease-out"
             style={{ width: "100%", transform: `translateX(-${100 - (d.step / TOTAL) * 100}%)` }}
           />
         </div>
@@ -621,6 +622,7 @@ export default function ReportForm() {
                   label={`${s.value} · ${pick(s.label, lang)}`}
                   hint={pick(s.hint, lang)}
                   danger={s.value === 5}
+                  sev={s.value as 1 | 2 | 3 | 4 | 5}
                 />
               ))}
             </div>
@@ -694,13 +696,23 @@ export default function ReportForm() {
                   <div>
                     <dt className="text-[14px] text-ink-50">{t("yourSeverity", lang)}</dt>
                     <dd className="mt-1 font-medium">
-                      {d.severity} · {pick(SEVERITY[(d.severity ?? 1) - 1].label, lang)}
+                      {d.severity && (
+                        <span className={`chip ${SEVERITY_VISUAL[d.severity as 1 | 2 | 3 | 4 | 5].chip}`}>
+                          {(() => { const V = SEVERITY_VISUAL[d.severity as 1 | 2 | 3 | 4 | 5].icon; return <V size={16} weight="bold" aria-hidden />; })()}
+                          {d.severity} · {SEVERITY_VISUAL[d.severity as 1 | 2 | 3 | 4 | 5].word}
+                        </span>
+                      )}
                     </dd>
                   </div>
                   <div>
                     <dt className="text-[14px] text-ink-50">{t("thambiSeverity", lang)}</dt>
                     <dd className="mt-1 font-medium">
-                      {reading.text_severity ? `${reading.text_severity} · ${pick(SEVERITY[reading.text_severity - 1].label, lang)}` : "—"}
+                      {reading.text_severity ? (
+                        <span className={`chip ${SEVERITY_VISUAL[reading.text_severity as 1 | 2 | 3 | 4 | 5].chip}`}>
+                          {(() => { const V = SEVERITY_VISUAL[reading.text_severity as 1 | 2 | 3 | 4 | 5].icon; return <V size={16} weight="bold" aria-hidden />; })()}
+                          {reading.text_severity} · {SEVERITY_VISUAL[reading.text_severity as 1 | 2 | 3 | 4 | 5].word}
+                        </span>
+                      ) : "—"}
                     </dd>
                     {reading.severity_reason && <dd className="mt-1 font-serif text-[15px] text-ink-64">{reading.severity_reason}</dd>}
                   </div>
@@ -794,8 +806,9 @@ function Field({
 }
 
 function Choice({
-  on, onClick, label, hint, danger,
-}: { on: boolean; onClick: () => void; label: string; hint?: string; danger?: boolean }) {
+  on, onClick, label, hint, danger, sev,
+}: { on: boolean; onClick: () => void; label: string; hint?: string; danger?: boolean; sev?: 1 | 2 | 3 | 4 | 5 }) {
+  const SevIcon = sev ? SEVERITY_VISUAL[sev].icon : null;
   return (
     <button type="button" role="radio" aria-checked={on} onClick={onClick} className="choice flex min-h-[64px] items-center gap-4 px-4 py-3">
       <span
@@ -805,7 +818,15 @@ function Choice({
         {on && <Check size={15} strokeWidth={2.75} />}
       </span>
       <span className="flex flex-col">
-        <span className={`text-[17px] font-medium leading-snug ${danger ? "text-danger" : ""}`}>{label}</span>
+        <span className="flex items-center gap-2">
+          {sev && SevIcon && (
+            <span className={`chip ${SEVERITY_VISUAL[sev].chip}`}>
+              <SevIcon size={16} weight="bold" aria-hidden />
+              {sev}
+            </span>
+          )}
+          <span className={`text-[17px] font-medium leading-snug ${danger ? "text-danger" : ""}`}>{label}</span>
+        </span>
         {hint && <span className="font-serif text-[15px] text-ink-64">{hint}</span>}
       </span>
     </button>

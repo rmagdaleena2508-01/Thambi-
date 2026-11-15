@@ -177,3 +177,10 @@ p { text-wrap: pretty; }
 .chip-progress { color: #92400e; background: #fef3c7; }
 .chip-fixed { color: #166534; background: #dcfce7; }
 .chip-reopened { color: #b42318; background: #fee4e2; }
+
+/* Severity chips (colour, icon and word). */
+.sev-1 { color: #475569; background: #e2e8f0; }
+.sev-2 { color: #0b5c5b; background: #e3f4f2; }
+.sev-3 { color: #b45309; background: #fef3c7; }
+.sev-4 { color: #c2410c; background: #ffedd5; }
+.sev-5 { color: #b42318; background: #fee4e2; }

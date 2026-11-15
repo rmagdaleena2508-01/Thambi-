@@ -1,6 +1,6 @@
 import Link from "next/link";
 import {
-  ArrowRight, CheckCircle, Camera, MapPin, Users, WarningCircle, Circle,
+  ArrowRight, CheckCircle, Camera, MapPin, Users, WarningCircle, Circle, SealCheck, PaperPlaneTilt,
 } from "@phosphor-icons/react/dist/ssr";
 import Reveal from "@/components/landing/Reveal";
 import WordReveal from "@/components/landing/WordReveal";
@@ -130,11 +130,11 @@ export default function Home() {
                 <dl className="mt-6 grid grid-cols-2 gap-5">
                   <div>
                     <dt className="text-[14px] text-ink-64">Your rating</dt>
-                    <dd className="mt-1 font-semibold">4 · People could get hurt</dd>
+                    <dd className="mt-1"><span className="chip sev-4">4 · People could get hurt</span></dd>
                   </div>
                   <div>
                     <dt className="text-[14px] text-ink-64">Thambi reads your words</dt>
-                    <dd className="mt-1 font-semibold">3 · Damages vehicles</dd>
+                    <dd className="mt-1"><span className="chip sev-3">3 · Damages vehicles</span></dd>
                   </div>
                   <div className="col-span-2">
                     <dt className="text-[14px] text-ink-64">Dangers noticed</dt>
@@ -144,13 +144,11 @@ export default function Home() {
                     </dd>
                   </div>
                 </dl>
-                <ol className="mt-8 space-y-3 border-t border-[var(--ring-strong)] pt-6" aria-label="Status history">
-                  {["Reported", "Verified", "Sent to the office", "Fixed, confirmed by neighbours"].map((s, i) => (
-                    <li key={s} className="flex items-center gap-3 text-[16px]">
-                      <CheckCircle size={20} weight={i < 2 ? "fill" : "regular"} className={i < 2 ? "text-[var(--accent)]" : "text-ink-50"} aria-hidden />
-                      <span className={i < 2 ? "" : "text-ink-64"}>{s}</span>
-                    </li>
-                  ))}
+                <ol className="mt-8 flex flex-wrap gap-2 border-t border-[var(--ring-strong)] pt-6" aria-label="Status history">
+                  <li className="chip chip-reported"><Circle size={16} weight="bold" aria-hidden />Reported</li>
+                  <li className="chip chip-verified"><SealCheck size={16} weight="bold" aria-hidden />Verified</li>
+                  <li className="chip chip-sent"><PaperPlaneTilt size={16} weight="bold" aria-hidden />Sent to office</li>
+                  <li className="chip chip-fixed"><CheckCircle size={16} weight="bold" aria-hidden />Fixed, confirmed by neighbours</li>
                 </ol>
               </article>
             </Reveal>
