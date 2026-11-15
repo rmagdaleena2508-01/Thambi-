@@ -38,6 +38,7 @@ sends it to the office that must fix it, and keeps it public until it is fixed.
    - [A better Tamil Nadu](#a-better-tamil-nadu)
 4. [How it works](#how-it-works)
 5. [Features](#features)
+   - [What comes next](#what-comes-next)
 6. [Data](#data)
    - [6.1 What data Thambi needs](#61-what-data-thambi-needs)
    - [6.2 How we approach each piece](#62-how-we-approach-each-piece)
@@ -153,6 +154,40 @@ Thambi **sits on top of them**. It turns a citizen's report into one clean, evid
 | Monsoon mode (extra danger boost in heavy rain) | Later |
 | Ward report card | Later |
 | AI reading of photos and videos | Version 2 |
+
+### What comes next
+
+The first version is deliberately focused: report, merge duplicates, route, track to the fix. These features are already designed and were held back on purpose so the core could ship fast and well. Each one was chosen because it answers a real question people ask about civic platforms — and each one is next in line when there is time to build more.
+
+#### Privacy blur
+
+**What it is.** Before a photo appears in public, faces and vehicle number plates in it are blurred automatically. A report shows the pothole, not the passer-by standing next to it or the bike parked beside it.
+
+**Why I chose it.** People will only report freely if they know a photo won't expose their neighbours, a delivery rider or a child walking past. Privacy has to be built into the product, not promised in a policy.
+
+**Why it stands out.** The first question anyone asks about a public complaint platform is *"what about people's privacy?"* A blurred face answers it in two seconds, without a word. It shows Thambi respects the people in the photo as much as the person who took it.
+
+#### Monsoon mode
+
+**What it is.** When heavy rain is forecast or falling, Thambi switches into monsoon mode. Problems that turn deadly in the rain — water-logged roads, open pits hidden under water, open stormwater drains, fallen wires — get an extra danger boost and rise to the top. A clear banner tells everyone monsoon mode is on.
+
+**Why I chose it.** In Chennai, the same pothole is an inconvenience in May and a hidden trap in November, when the northeast monsoon fills it with water and nobody can see how deep it is. A good priority system has to know what season it is.
+
+**Why it stands out.** Most complaint systems treat every day the same. Monsoon mode shows Thambi is built for *this* city and *this* climate — it understands that risk changes with the weather and acts before the accidents, not after.
+
+#### Ward report card
+
+**What it is.** One shareable page for every ward: problems open, problems fixed, average days to fix, the most common problem types, and the problems that have waited the longest. Simple enough to forward in a residents' WhatsApp group.
+
+**Why I chose it.** Individual complaints are easy to ignore. A clear, public picture of a whole ward is not. It gives residents' associations, councillors and ward offices the same facts to talk about.
+
+**Why it stands out.** It turns Thambi from a complaint box into an accountability tool. Wards that fix things fast get visible credit; wards that fall behind become visible too. Good work by officials becomes as public as the problems.
+
+#### AI that reads photos and videos
+
+**What it is.** In version 1, the AI reads what citizens write, and photos and videos are evidence for people. In version 2, the AI will also look at the photos and a few frames from each video to confirm the photo shows the problem described and to spot hazards like an open pit or an exposed wire.
+
+**Why it waits.** Keeping version 1 to words and votes kept the build fast, the results explainable, and the free-tier costs low. Modern multimodal models can read images directly, so this upgrade needs no separate computer-vision model — it's a natural next step, not a rebuild.
 
 ---
 
@@ -314,6 +349,13 @@ The first target is **100 users**, which keeps every service within its free tie
 - [ ] Tamil interface
 - [ ] Testing with real users
 - [ ] Demo video and hackathon submission (deadline 22 November 2026)
+
+**After the hackathon**
+
+- [ ] Monsoon mode
+- [ ] Privacy blur for faces and number plates
+- [ ] Ward report cards
+- [ ] AI reading of photos and videos (version 2)
 
 ## Documents
 
