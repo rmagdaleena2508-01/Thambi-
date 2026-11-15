@@ -346,7 +346,7 @@ The first target is **100 users**, which keeps every service within its free tie
 | 🟢 | Data plan and source research |
 | 🟢 | Project setup: app, database, hosting |
 | 🟠 | Authority directory extracted and verified |
-| ⚪ | Database schema and security rules |
+| 🟢 | Database schema and security rules |
 | ⚪ | Report form with AI reading of the description |
 | ⚪ | Duplicate detection pop-out and "Me too" |
 | ⚪ | Feed, map, priority score |
@@ -389,7 +389,22 @@ The first target is **100 users**, which keeps every service within its free tie
 - `scripts/extract_authorities.py` reads them with plain code (no AI) and writes **46 rows** to [`data/authorities.csv`](data/authorities.csv): 8 helplines and 38 District Collectors, each with its source link, download date and the page's own "last updated" date.
 - Checked every phone number and email back against its source page: **0 mismatches**.
 - 7 Collector numbers are published without an STD code and are marked incomplete.
+- All 46 rows are loaded into the database through a generated, repeatable SQL file (`supabase/seed/authorities.sql`). The public can read them; nobody can change them through the app.
+- One row needs attention: Mayiladuthurai's dial number borrows an STD code from a fax number that appears to belong to another district.
 - **Next:** cross-check each row against the department's own website (Chennai Corporation zones, Metro Water area offices, Pollution Control Board, electricity, Metro Rail, Highways), then mark rows `verified`. Only verified rows are used for routing.
+
+### 🟢 Database schema and security rules
+
+- **12 tables** for people, reports, media, "Me too" supports, comments, fix confirmations, status history, flags, authorities, routing rules, wards and sensitive places (schools, hospitals).
+- **The database is the security boundary.** Row-level security on every table, with column-level permissions: the public can only read and write exactly the fields they should. Roles, trust scores, photo GPS/time and private file paths are never readable from outside.
+- **Daily limits enforced in the database:** 5 reports, 30 comments, 100 supports and 20 flags per person per day.
+- **Priority score (0–100)** recalculated automatically on every change, with a plain-language "Why this rank?" reason.
+- **Tamper-proof status history:** status changes only through one checked function, only for moderators or the server, only along allowed steps. "Fixed" needs an after-photo; every entry is hash-chained to the one before it; nobody — not even the server — can edit or delete history.
+- **Neighbours can reopen a fix:** three "not fixed" answers within 7 days reopen the report automatically.
+- **Duplicate search** finds open reports of the same kind within 250 m, closest in meaning first.
+- **Media storage** with a private bucket (each person uploads only to their own folder) and a public bucket for cleaned copies.
+- **Live updates** switched on for reports, supports and status.
+- **Tested:** [`tests/security/attack_test.sql`](tests/security/attack_test.sql) runs 30 attacks as an anonymous visitor, two citizens and a moderator, then rolls everything back. **30 of 30 attacks blocked.** Supabase's security advisor is clean apart from one intentional item (moderators' status function).
 
 </details>
 
