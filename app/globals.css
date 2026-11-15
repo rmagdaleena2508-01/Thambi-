@@ -12,8 +12,11 @@
   --ink-50: #6f6f6f;
   --btn-dark: #202020;
   --btn-dark-text: #fcfcfc;
-  --accent: #0072cc;
-  --accent-tint: #e1effe;
+  --accent: #0e7c7b;
+  --accent-tint: #e3f4f2;
+  --brand-deep: #0b5c5b;
+  --surface-tint: #eef7f6;
+  --warm: #f2a900;
   --danger: #b42318;
   --danger-tint: #fdecea;
   --ring: rgba(17, 17, 17, 0.06);
@@ -40,6 +43,9 @@
   --color-accent-tint: var(--accent-tint);
   --color-danger: var(--danger);
   --color-danger-tint: var(--danger-tint);
+  --color-brand-deep: var(--brand-deep);
+  --color-surface-tint: var(--surface-tint);
+  --color-warm: var(--warm);
   --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
@@ -162,3 +168,12 @@ p { text-wrap: pretty; }
 .leaflet-container { font-family: inherit; border-radius: 14px; }
 .photo-outline { outline: 1px solid oklch(0 0 0 / 0.1); outline-offset: -1px; }
 .photo-outline:not(:root) { outline-color: oklch(0 0 0 / 0.1); }
+
+/* Status and severity chips: colour, icon and word together (never colour alone). */
+.chip { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 4px 10px; font-size: 14px; font-weight: 600; }
+.chip-reported { color: #334155; background: #e2e8f0; }
+.chip-verified { color: #4338ca; background: #e0e7ff; }
+.chip-sent { color: #1d4ed8; background: #dbeafe; }
+.chip-progress { color: #92400e; background: #fef3c7; }
+.chip-fixed { color: #166534; background: #dcfce7; }
+.chip-reopened { color: #b42318; background: #fee4e2; }

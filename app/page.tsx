@@ -112,7 +112,7 @@ export default function Home() {
         </section>
 
         {/* 2. A report, in plain words */}
-        <section aria-labelledby="example-title" className="border-t border-[var(--ring)] bg-[var(--surface-2)]">
+        <section aria-labelledby="example-title" className="border-t border-[var(--ring)] bg-[var(--surface-tint)]">
           <div className="mx-auto grid w-full max-w-[1120px] gap-12 px-5 py-24 lg:grid-cols-[1fr_1.1fr] lg:items-center">
             <Reveal>
               <h2 id="example-title" className="text-[clamp(32px,5vw,48px)] font-semibold leading-[1.05] tracking-[-0.02em]">
@@ -179,7 +179,7 @@ export default function Home() {
         </section>
 
         {/* 4. Four taps */}
-        <section aria-labelledby="flow-title" className="border-t border-[var(--ring)] bg-[var(--surface-2)]">
+        <section aria-labelledby="flow-title" className="border-t border-[var(--ring)] bg-[var(--surface-tint)]">
           <div className="mx-auto grid w-full max-w-[1120px] gap-12 px-5 py-24 lg:grid-cols-2 lg:items-center">
             <Reveal>
               <div className="surface mx-auto w-full max-w-[300px] rounded-[36px] p-4">
@@ -258,7 +258,7 @@ export default function Home() {
           <ol className="mt-12 grid gap-4 md:grid-cols-3">
             {steps.map((s, i) => (
               <li key={s.title}><Reveal className="surface rounded-[18px] p-6">
-                <span className="tabular flex h-9 w-9 items-center justify-center rounded-full bg-[var(--btn-dark)] text-[15px] font-semibold text-[var(--btn-dark-text)]">
+                <span className="tabular flex h-9 w-9 items-center justify-center rounded-full bg-[var(--accent)] text-[15px] font-semibold text-white">
                   {i + 1}
                 </span>
                 <h3 className="mt-5 text-[20px] font-semibold">{s.title}</h3>
@@ -269,7 +269,7 @@ export default function Home() {
         </section>
 
         {/* 8. Who it is for */}
-        <section aria-labelledby="who-title" className="border-t border-[var(--ring)] bg-[var(--surface-2)]">
+        <section aria-labelledby="who-title" className="border-t border-[var(--ring)] bg-[var(--surface-tint)]">
           <div className="mx-auto w-full max-w-[1120px] px-5 py-24">
             <Reveal>
               <h2 id="who-title" className="max-w-[680px] text-[clamp(32px,5vw,48px)] font-semibold leading-[1.05] tracking-[-0.02em]">
@@ -296,14 +296,14 @@ export default function Home() {
           </Reveal>
           <div className="mt-12 grid gap-4 md:grid-cols-3">
             <Reveal className="surface rounded-[18px] p-6">
-              <h3 className="text-[18px] font-semibold">Built and tested</h3>
+              <span className="chip chip-fixed">Built and tested</span>
               <p className="mt-3 text-[16px] leading-[1.6] text-ink-72">
                 The eight-step report form, the duplicate check, Me too, and the locked status history. Tested in a
                 browser with test accounts.
               </p>
             </Reveal>
             <Reveal className="surface rounded-[18px] p-6">
-              <h3 className="text-[18px] font-semibold">Contacts checked</h3>
+              <span className="chip chip-verified">Contacts checked</span>
               <p className="tabular mt-3 text-[16px] leading-[1.6] text-ink-72">
                 31 verified against each office&apos;s own website. 14 uncertain and not used for routing. 5 not checked yet.
               </p>
@@ -312,7 +312,7 @@ export default function Home() {
               </a>
             </Reveal>
             <Reveal className="surface rounded-[18px] p-6">
-              <h3 className="text-[18px] font-semibold">Planned</h3>
+              <span className="chip chip-progress">Planned</span>
               <ul className="mt-3 space-y-2 text-[16px] text-ink-72">
                 <li>A Tamil interface</li>
                 <li>AI reading of photos and videos</li>
@@ -344,18 +344,18 @@ export default function Home() {
         </section>
 
         {/* 11. Final call to action */}
-        <section aria-labelledby="final-title" className="border-t border-[var(--ring)] bg-[var(--surface-2)]">
+        <section aria-labelledby="final-title" className="bg-[var(--brand-deep)] text-white">
           <div className="mx-auto flex w-full max-w-[1120px] flex-col items-start gap-8 px-5 py-24 md:flex-row md:items-center md:justify-between">
             <Reveal>
-              <h2 id="final-title" className="text-[clamp(32px,5vw,48px)] font-semibold leading-[1.05] tracking-[-0.02em]">
+              <h2 id="final-title" className="text-[clamp(32px,5vw,48px)] font-semibold leading-[1.05] tracking-[-0.02em] text-white">
                 Ready to report a problem?
               </h2>
-              <p className="mt-4 max-w-[520px] text-[18px] leading-[1.6] text-ink-72">
+              <p className="mt-4 max-w-[520px] text-[18px] leading-[1.6] text-white/90">
                 It takes a few minutes. You can keep your draft on this device until you send.
               </p>
             </Reveal>
             <Reveal>
-              <Link href="/report/new" className="btn btn-primary">
+              <Link href="/report/new" className="btn bg-white text-[var(--brand-deep)]">
                 Report a problem <ArrowRight size={18} weight="bold" aria-hidden />
               </Link>
             </Reveal>
