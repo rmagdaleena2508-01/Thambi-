@@ -12,7 +12,7 @@ sends it to the office that must fix it, and keeps it public until it is fixed.
 ![Status](https://img.shields.io/badge/status-planning-orange)
 ![Hackathon](https://img.shields.io/badge/IDEA%2F%2FFORGE-Track%201%20%C2%B7%20Civic%20Pulse-blue)
 ![Region](https://img.shields.io/badge/region-Tamil%20Nadu-red)
-![Languages](https://img.shields.io/badge/languages-Tamil%20%7C%20English-green)
+![Languages](https://img.shields.io/badge/language-English-green)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
 [Data cautions](#65-data-cautions-and-known-gaps) ·
@@ -63,7 +63,7 @@ Thambi is a website where citizens report civic problems — damaged roads, open
 - **rates how serious each problem is**, using the citizen's own judgement, an AI that reads their description, and their neighbours' votes (photos and videos are evidence for people; AI reading of images comes in version 2);
 - **finds reports of the same problem nearby** while the citizen is still typing, so they can add their support instead of filing a duplicate;
 - **sends it to the right authority** — the Corporation, Metro Water, the Pollution Control Board, Highways, Metro Rail — with a ready-to-send complaint;
-- **shows a public dashboard of complaints and fixes**, as simple to scroll as a social media feed, in Tamil and English.
+- **shows a public dashboard of complaints and fixes**, as simple to scroll as a social media feed, in English. Tamil comes in a later version.
 
 Thambi is being built for the **IDEA//FORGE Online Hackathon**, Track 1 (Civic Pulse: Digital Governance & Public Information), Problem 2: *Transparent Civic Grievance & Infrastructure Triage System.* It starts in Chennai and is designed for all of Tamil Nadu.
 
@@ -100,7 +100,7 @@ Shouting on social media is loud, but it is scattered, unstructured, and easy to
 | Only the loud get heard | One tap **"Me too"** gives every person the same voice. A grandmother's support counts the same as an influencer's. |
 | Fifty voices look like one | **Duplicate detection** while typing joins neighbours on one report, with a public support count. |
 | No visible outcome | Every report has a **public, tamper-proof status history** and a **Fixed** tab with before-and-after photos. |
-| Language | **Tamil and English** everywhere. Write in Tamil, English or Tanglish. |
+| Language | **English** for the demo. Tamil is a future feature (see [What comes next](#what-comes-next)). Citizens can write in English or Tanglish. |
 
 ### Thambi doesn't replace anything. It fills the gap.
 
@@ -113,7 +113,7 @@ Thambi **sits on top of them**. It turns a citizen's report into one clean, evid
 - **Fewer injuries.** Dangerous problems — open pits, exposed wires, sewage overflow, anything near a school — rise to the top instead of waiting in a queue.
 - **Less wasted effort.** Departments get one strong case instead of fifty angry calls. Citizens stop repeating the same complaint.
 - **Trust built on proof.** When a road is fixed, everyone sees it. Good work by officials becomes visible too.
-- **Everyone counts.** Tamil-first, big text, one tap to support — so elderly residents, students and daily commuters all have the same voice.
+- **Everyone counts.** Big text, one tap to support — so elderly residents, students and daily commuters all have the same voice.
 - **Better decisions.** Public data on what breaks, where, and how long it takes to fix helps wards and residents' associations plan, not just react.
 
 ---
@@ -142,7 +142,7 @@ Thambi **sits on top of them**. It turns a citizen's report into one clean, evid
 | Feature | Status |
 |---|---|
 | Strategic 8-step report form (one question per screen) | Planned |
-| AI reading of the citizen's description (Tamil, English, Tanglish) | Planned |
+| AI reading of the citizen's description (English, Tanglish) | Planned |
 | Pop-out duplicate detection while typing | Planned |
 | "Me too" support button (one per person) | Planned |
 | Priority score with a visible "Why this rank?" | Planned |
@@ -151,7 +151,7 @@ Thambi **sits on top of them**. It turns a citizen's report into one clean, evid
 | Comments with suggested starters | Planned |
 | Tamper-proof status history | Planned |
 | Fake report, abuse, false vote and bot detection | Planned |
-| Tamil and English interface | Planned |
+| Tamil interface | Later |
 | Privacy blur for faces and number plates | Later |
 | Monsoon mode (extra danger boost in heavy rain) | Later |
 | Ward report card | Later |
@@ -185,6 +185,16 @@ The first version is deliberately focused: report, merge duplicates, route, trac
 
 **Why it stands out.** It turns Thambi from a complaint box into an accountability tool. Wards that fix things fast get visible credit; wards that fall behind become visible too. Good work by officials becomes as public as the problems.
 
+#### Tamil and English interface
+
+**What it is.** The full report form, sign-in and feed in Tamil as well as English, with a switch at the top. The switch changes the words only; nothing else moves.
+
+**Why I chose it.** Many people who would report a broken road are more comfortable in Tamil. Language is often the first barrier to a civic complaint, and this removes it.
+
+**Why it stands out.** Most civic apps in Tamil Nadu are English-only or Tamil-only. A bilingual form, with the Tamil text checked by native speakers, shows the platform was built for the people who live with the problem.
+
+**Why it waits.** The demo is English-first to ship a complete, well-tested flow. Tamil wording needs a native-speaker review before it goes live.
+
 #### AI that reads photos and videos
 
 **What it is.** In version 1, the AI reads what citizens write, and photos and videos are evidence for people. In version 2, the AI will also look at the photos and a few frames from each video to confirm the photo shows the problem described and to spot hazards like an open pit or an exposed wire.
@@ -209,8 +219,7 @@ This section lists every piece of data Thambi needs, how we will get it, how tru
 | 6 | **Seed reports** — real photos and videos of real problems on the founder's own routes | For the public feed and the demo |
 | 7 | **AI test set** — about 20 labelled descriptions, 10 duplicate pairs, 10 non-duplicate pairs | To check severity and duplicate detection actually work |
 | 8 | **Sensitive places** — schools and hospitals | To raise the priority of dangers near them |
-| 9 | **Tamil interface text** | For the Tamil/English switch |
-| 10 | **Moderation test comments** in Tamil, Tanglish and English | To test the abuse filter |
+| 9 | **Moderation test comments** in Tamil, Tanglish and English | To test the abuse filter |
 | 11 | **Problem-size facts** — complaint volumes, documented incidents | For the problem statement and pitch |
 
 ### 6.2 How we approach each piece
@@ -225,7 +234,6 @@ This section lists every piece of data Thambi needs, how we will get it, how tru
 | 6 | Seed reports | First-hand, taken by the founder | Labelled clearly as the founder's own reports. No invented reports shown as real |
 | 7 | AI test set | Built and labelled by the team | Kept private; used only for testing |
 | 8 | Sensitive places | OpenStreetMap; OpenCity datasets | Load as map points with source credit |
-| 9 | Tamil text | Written by the team | Reviewed by a native Tamil speaker |
 | 10 | Moderation tests | Written by the team | Test data only; never shown in public |
 | 11 | Problem-size facts | News and official statements | Every number cited with its source and date |
 
@@ -318,7 +326,7 @@ Every authority row shows a **"verified on"** date to the public, so anyone can 
 - **Problem-size facts come from news reports** (2023–2024). They are cited as news, not as official statistics.
 - **The AI is not switched on yet.** Until the AI key and the server key are added, Thambi reads reports with the database's keyword list only, and every new report waits for a moderator before it is public.
 - **The keyword list is simple word matching.** It can miss danger described in unusual words, or flag a word out of context (for example "school" in "no school nearby"). It only sets a minimum severity; a person or the AI refines it.
-- **Tamil wording on the report form is ours and needs a native speaker's review.**
+- **Tamil interface is not in the demo.** It is a future feature (see [What comes next](#what-comes-next)).
 - **Videos stay private in version 1.** Photos are cleaned on the server (resized, all metadata removed) before anything is public; videos are not yet cleaned, so they are kept private and shown only to moderators.
 - **The photo-location check is not active yet.** Comparing a photo's GPS with the map pin is planned; today only reused photos are detected.
 - **Email sign-in uses Supabase's built-in email service**, which sends a limited number of emails per hour. Google sign-in needs to be set up before it works.
@@ -372,7 +380,7 @@ To report a security issue, see [SECURITY.md](SECURITY.md).
 | AI | A Gemini model on text only in version 1, and a text-embedding model |
 | Maps | Leaflet with OpenStreetMap |
 | Bot protection | Cloudflare Turnstile |
-| Languages | next-intl (Tamil, English) |
+| Languages | next-intl (English first; Tamil later) |
 | Hosting | Vercel |
 
 The first target is **100 users**, which keeps every service within its free tier.
@@ -396,7 +404,7 @@ The first target is **100 users**, which keeps every service within its free tie
 | ⚪ | Routing and complaint letter |
 | ⚪ | Tamper-proof status and Fixed tab |
 | ⚪ | Moderation and bot protection |
-| 🟠 | Tamil interface |
+| ⚪ | Tamil interface (after the hackathon) |
 | ⚪ | Testing with real users |
 | ⚪ | Demo video and hackathon submission (deadline 22 November 2026) |
 
@@ -410,7 +418,7 @@ The first target is **100 users**, which keeps every service within its free tie
 **Built and tested end to end in the browser:**
 
 - **8-step report form** at `/report/new`, one question per screen: problem type → map pin (move the map under a fixed pin, or use your location; road and area fill in automatically) → up to 4 photos and a 30-second video → description → how long → how serious (choosing "danger right now" shows the 112 / 101 emergency numbers) → who is affected → check and send.
-- **English and Tamil** switch on every screen. The draft is saved on the device, so a refresh or signing in never loses a report.
+- **English** for the demo; Tamil is planned for later. The draft is saved on the device, so a refresh or signing in never loses a report.
 - **The pop-out agent:** after about 15 words, Thambi shows matching open reports nearby. One tap adds a "Me too" instead of a duplicate. Tested: it found a nearby test report 8 m away, and the support count and priority rose.
 - **Keyword danger check inside the database:** Tamil, Tanglish and English danger words (for example *pallam*, பள்ளம், "current wire", "school") set danger flags and a minimum severity, even without AI, and can't be faked by the client.
 - **AI reading of the words only** (never photos), with a strict output format and the citizen's text treated as data, never as instructions. Falls back to the keyword check if the AI is unavailable.
@@ -435,7 +443,7 @@ The first target is **100 users**, which keeps every service within its free tie
 
 ### 🟢 Project setup: app, database, hosting
 
-- Next.js + TypeScript + Tailwind app created, with an English and Tamil coming-soon page.
+- Next.js + TypeScript + Tailwind app created, with an English coming-soon page.
 - Folder structure in place: `app/`, `components/`, `lib/` (supabase, ai, geo), `data/`, `scripts/`, `supabase/migrations/`, `tests/`.
 - Supabase project created in Mumbai (ap-south-1). First migration turns on PostGIS (maps and location) and pgvector (duplicate search). Security advisor: no issues.
 - Deployed on Vercel and connected to this repository, so every push deploys. Live link checked while logged out.
@@ -471,6 +479,7 @@ The first target is **100 users**, which keeps every service within its free tie
 | ⚪ | Monsoon mode |
 | ⚪ | Privacy blur for faces and number plates |
 | ⚪ | Ward report cards |
+| ⚪ | Tamil and English interface |
 | ⚪ | AI reading of photos and videos (version 2) |
 
 ## Documents

@@ -5,9 +5,7 @@ import { analyzeReport, type ReportInput } from "@/lib/ai/gemini";
 export type Understanding = {
   source: "ai" | "keywords";
   title_en: string | null;
-  title_ta: string | null;
   summary_en: string | null;
-  summary_ta: string | null;
   text_severity: number | null;
   severity_reason: string | null;
   danger_flags: string[];
@@ -32,7 +30,7 @@ export async function understand(supabase: SupabaseClient, input: ReportInput): 
   if (!ai) {
     return {
       source: "keywords",
-      title_en: null, title_ta: null, summary_en: null, summary_ta: null,
+      title_en: null, summary_en: null,
       text_severity: floor,
       severity_reason: floor ? "Danger words in the description." : null,
       danger_flags: keywordFlags,
@@ -44,9 +42,7 @@ export async function understand(supabase: SupabaseClient, input: ReportInput): 
   return {
     source: "ai",
     title_en: ai.title_en,
-    title_ta: ai.title_ta,
     summary_en: ai.summary_en,
-    summary_ta: ai.summary_ta,
     text_severity: Math.max(ai.text_severity, floor ?? 0),
     severity_reason: ai.severity_reason,
     danger_flags: Array.from(new Set([...keywordFlags, ...ai.danger_words.filter((w) => /^[a-z_]{3,30}$/.test(w))])),

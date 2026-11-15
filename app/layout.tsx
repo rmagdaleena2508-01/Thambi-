@@ -1,11 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Noto_Sans, Noto_Sans_Tamil, Noto_Serif, Noto_Serif_Tamil } from "next/font/google";
+import { Noto_Sans, Noto_Serif } from "next/font/google";
 import "./globals.css";
 
 const sans = Noto_Sans({ variable: "--font-sans", subsets: ["latin"] });
-const tamil = Noto_Sans_Tamil({ variable: "--font-tamil", subsets: ["tamil"] });
 const serif = Noto_Serif({ variable: "--font-serif", subsets: ["latin"], weight: ["400"] });
-const serifTamil = Noto_Serif_Tamil({ variable: "--font-serif-tamil", subsets: ["tamil"], weight: ["400"] });
 
 export const metadata: Metadata = {
   title: "Thambi — Tell Thambi. It gets taken care of.",
@@ -26,7 +24,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${sans.variable} ${tamil.variable} ${serif.variable} ${serifTamil.variable} h-full`}
+      className={`${sans.variable} ${serif.variable} h-full`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

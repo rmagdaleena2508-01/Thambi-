@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thambi wireframe — 7 slides</title>
+<style>
+  :root { --ink:#1c1c1c; --mute:#6b6b6b; --line:#d9d9d9; --box:#f4f4f4; --accent:#0072cc; --warn:#b42318; }
+  * { box-sizing: border-box; }
+  html, body { margin:0; height:100%; background:#fff; color:var(--ink); font-family: "Noto Sans", system-ui, sans-serif; }
+  .deck { min-height:100%; display:flex; flex-direction:column; }
+  .bar { display:flex; justify-content:space-between; align-items:center; padding:14px 24px; border-bottom:1px solid var(--line); font-size:14px; color:var(--mute); }
+  .bar b { color:var(--ink); font-weight:600; }
+  .stage { flex:1; display:flex; align-items:center; justify-content:center; padding:32px 16px; }
+  .slide { display:none; width:100%; max-width:820px; }
+  .slide.on { display:block; }
+  .frame { border:1.5px solid var(--ink); border-radius:18px; padding:28px; background:#fff; }
+  .label { font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--mute); }
+  h1 { font-size:40px; line-height:1.15; margin:8px 0 10px; }
+  h2 { font-size:28px; line-height:1.2; margin:6px 0 8px; }
+  p { font-size:18px; line-height:1.6; margin:8px 0; }
+  .note { margin-top:18px; padding:12px 14px; background:var(--box); border-radius:12px; font-size:15px; color:var(--mute); }
+  .box { background:var(--box); border:1px dashed #b5b5b5; border-radius:12px; padding:14px; font-size:15px; color:var(--mute); }
+  .btn { display:inline-block; min-height:52px; line-height:52px; padding:0 26px; border-radius:12px; background:#202020; color:#fff; font-size:18px; font-weight:600; }
+  .btn.ghost { background:#fff; color:var(--ink); border:1.5px solid var(--ink); }
+  .row { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+  .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:16px; }
+  .tile { border:1.5px solid var(--line); border-radius:14px; min-height:84px; padding:14px; font-size:17px; display:flex; flex-direction:column; justify-content:space-between; }
+  .tile.on { border:2px solid var(--accent); background:#eef6ff; }
+  .choice { border:1.5px solid var(--line); border-radius:12px; min-height:56px; padding:14px 16px; font-size:17px; margin-top:10px; display:flex; align-items:center; gap:12px; }
+  .choice.on { border:2px solid var(--accent); background:#eef6ff; }
+  .dot { width:20px; height:20px; border-radius:50%; border:2px solid #888; flex:none; }
+  .dot.on { background:var(--accent); border-color:var(--accent); }
+  .map { height:180px; border-radius:14px; background:repeating-linear-gradient(45deg,#eef2f5,#eef2f5 14px,#e6ebf0 14px,#e6ebf0 28px); position:relative; border:1.5px solid var(--line); }
+  .pin { position:absolute; left:50%; top:50%; transform:translate(-50%,-100%); font-size:30px; }
+  .pop { border:1.5px solid var(--accent); border-radius:14px; padding:16px; margin-top:14px; background:#f7fbff; }
+  .bottom { position:sticky; bottom:0; margin-top:24px; padding-top:14px; border-top:1px solid var(--line); display:flex; justify-content:space-between; gap:10px; }
+  .prog { height:6px; background:#eee; border-radius:6px; margin-top:12px; overflow:hidden; }
+  .prog i { display:block; height:100%; background:var(--ink); }
+  .toggle { display:inline-flex; border:1.5px solid var(--ink); border-radius:999px; overflow:hidden; }
+  .toggle span { padding:8px 16px; font-size:15px; }
+  .toggle span.on { background:var(--ink); color:#fff; }
+  .nav { display:flex; justify-content:space-between; align-items:center; padding:16px 24px; border-top:1px solid var(--line); }
+  .nav button { min-height:44px; min-width:110px; border:1.5px solid var(--ink); background:#fff; border-radius:10px; font:inherit; font-size:16px; cursor:pointer; }
+  .nav button:disabled { opacity:.35; cursor:default; }
+  .dots { display:flex; gap:8px; }
+  .dots i { width:10px; height:10px; border-radius:50%; background:#ddd; }
+  .dots i.on { background:var(--ink); }
+  .ann { font-size:14px; color:var(--mute); margin-top:12px; }
+  @media (max-width:640px) {
+    h1 { font-size:32px; } h2 { font-size:24px; }
+    .grid { grid-template-columns:repeat(2,1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="deck">
+  <div class="bar">
+    <span><b>Thambi</b> · wireframe, v1 · 7 slides</span>
+    <span id="count">1 / 7</span>
+  </div>
+
+  <div class="stage">
+
+    <!-- SLIDE 1: INTRO -->
+    <section class="slide on" data-i="0">
+      <div class="frame" style="text-align:center; padding:56px 28px;">
+        <div class="label">Tamil Nadu</div>
+        <h1 style="margin-top:18px;">Thambi</h1>
+        <p style="max-width:520px; margin:0 auto;">Tell Thambi. It gets taken care of.<br>Report a broken road, a leak or sewage. See it tracked in public until it is fixed.</p>
+        <div class="row" style="justify-content:center; margin-top:30px;">
+          <span class="btn">Report a problem</span>
+          <span class="btn ghost">See what is being fixed</span>
+        </div>
+        <div class="note" style="max-width:520px; margin-left:auto; margin-right:auto;">Centred, one clear action. Nothing else on this screen competes with the button.</div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: STEP 1 -->
+    <section class="slide" data-i="1">
+      <div class="frame">
+        <div class="label">Report · step 1 of 8</div>
+        <h2>What is the problem?</h2>
+        <p style="color:var(--mute); font-size:16px;">Pick the closest one.</p>
+        <div class="grid">
+          <div class="tile on">Road or pothole<span>✓</span></div>
+          <div class="tile">Water leak</div>
+          <div class="tile">Sewage</div>
+          <div class="tile">Rainwater drain</div>
+          <div class="tile">Garbage</div>
+          <div class="tile">Streetlight</div>
+          <div class="tile">Electric wire or pole</div>
+          <div class="tile">Pollution</div>
+          <div class="tile">Something else</div>
+        </div>
+        <div class="prog"><i style="width:12.5%"></i></div>
+        <div class="bottom"><span class="btn ghost">Back</span><span class="btn">Next</span></div>
+        <div class="ann">One question per screen, like a Google Form. Big tiles, one tap each.</div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: STEP 2 -->
+    <section class="slide" data-i="2">
+      <div class="frame">
+        <div class="label">Report · step 2 of 8</div>
+        <h2>Where is it?</h2>
+        <div class="map"><span class="pin">📍</span></div>
+        <div class="row" style="margin-top:12px;"><span class="btn ghost" style="min-height:48px; line-height:48px; font-size:16px;">Use my location</span><span style="color:var(--mute); font-size:15px;">13.08270, 80.27070</span></div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px;">
+          <div class="box">Road or street<br><b style="color:var(--ink);">Raja Muthiah Road</b></div>
+          <div class="box">Area<br><b style="color:var(--ink);">Park Town</b></div>
+          <div class="box" style="grid-column:1/-1;">Nearest landmark (optional)<br>e.g. opposite the metro pillar</div>
+        </div>
+        <div class="prog"><i style="width:25%"></i></div>
+        <div class="bottom"><span class="btn ghost">Back</span><span class="btn">Next</span></div>
+        <div class="ann">Pin stays fixed in the middle; the map moves under it. Road and area fill in by themselves; the person can correct them.</div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: STEP 3 + 4 -->
+    <section class="slide" data-i="3">
+      <div class="frame">
+        <div class="label">Report · steps 3 and 4 of 8</div>
+        <h2>Photos, then tell us in your words</h2>
+        <div class="row" style="margin-top:10px;">
+          <div class="box" style="width:110px; height:110px; display:flex; align-items:center; justify-content:center;">+ Photo</div>
+          <div class="box" style="width:110px; height:110px; display:flex; align-items:center; justify-content:center;">+ Video</div>
+          <span style="font-size:14px; color:var(--mute);">Up to 4 photos and one 30-second video. Optional.</span>
+        </div>
+        <p style="margin-top:16px; font-weight:600;">Describe it</p>
+        <div class="box" style="min-height:96px; color:var(--ink);">Deep pit near the signal. Rain water fills it. Two-wheelers fall in at night.</div>
+        <div class="pop">
+          <b>Thambi found reports like yours nearby</b>
+          <p style="font-size:16px; margin:6px 0;">Is it one of these? Add your Me too so your voice joins theirs.</p>
+          <div class="box" style="color:var(--ink);">Deep pit near Park Town signal · 8 m away · 23 people · 41 days open</div>
+          <div class="row" style="margin-top:10px;"><span class="btn" style="min-height:48px; line-height:48px; font-size:16px;">Yes, add my Me too</span><span class="btn ghost" style="min-height:48px; line-height:48px; font-size:16px;">No, mine is different</span></div>
+        </div>
+        <div class="prog"><i style="width:50%"></i></div>
+        <div class="bottom"><span class="btn ghost">Back</span><span class="btn">Next</span></div>
+        <div class="ann">The pop-out never blocks typing. It appears after about 15 words and can be closed. Closing it never loses the words.</div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: STEP 5-7 -->
+    <section class="slide" data-i="4">
+      <div class="frame">
+        <div class="label">Report · steps 5 to 7 of 8</div>
+        <h2>How long, how serious, who is affected</h2>
+        <p style="font-weight:600; margin-top:12px;">How long has it been like this?</p>
+        <div class="choice on"><span class="dot on"></span>Months</div>
+        <div class="choice"><span class="dot"></span>A few days</div>
+        <p style="font-weight:600; margin-top:14px;">How serious is it for you?</p>
+        <div class="choice"><span class="dot"></span>1 · Annoying</div>
+        <div class="choice"><span class="dot"></span>3 · Damages vehicles</div>
+        <div class="choice on"><span class="dot on"></span>4 · People could get hurt</div>
+        <div class="choice" style="border-color:var(--warn); color:var(--warn);"><span class="dot" style="border-color:var(--warn);"></span>5 · Danger right now</div>
+        <div class="box" style="margin-top:10px; color:var(--warn);">If danger right now: 112 (emergency) or 101 (fire) shown here. Thambi is not an emergency service.</div>
+        <p style="font-weight:600; margin-top:14px;">Who gets affected? <span style="font-weight:400; color:var(--mute); font-size:15px;">Pick all that apply.</span></p>
+        <div class="row"><span class="btn ghost" style="min-height:44px; line-height:44px; font-size:16px; background:#eef6ff; border-color:var(--accent);">✓ Two-wheelers</span><span class="btn ghost" style="min-height:44px; line-height:44px; font-size:16px;">Walkers</span><span class="btn ghost" style="min-height:44px; line-height:44px; font-size:16px;">School children</span></div>
+        <div class="prog"><i style="width:87.5%"></i></div>
+        <div class="bottom"><span class="btn ghost">Back</span><span class="btn">Next</span></div>
+        <div class="ann">Pattern from Google Forms and complaint portals: radio for one answer, checkboxes for several. Whole row is the tap target (at least 48 px tall).</div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: REVIEW + SEND -->
+    <section class="slide" data-i="5">
+      <div class="frame">
+        <div class="label">Report · step 8 of 8</div>
+        <h2>Check and send</h2>
+        <p style="color:var(--mute); font-size:16px;">This is what Thambi understood. You can change the title.</p>
+        <div class="box" style="color:var(--ink); margin-top:12px;">
+          <div class="label">Title</div>
+          <div style="font-size:19px; font-weight:600; margin-top:4px;">Road or pothole · Raja Muthiah Road</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px;">
+          <div class="box" style="color:var(--ink);"><span class="label">Your rating</span><br><b>4 · People could get hurt</b></div>
+          <div class="box" style="color:var(--ink);"><span class="label">Thambi's reading of your words</span><br><b>3 · Damages vehicles</b><br><span style="font-size:14px;">Open pit · No barricade</span></div>
+        </div>
+        <p style="font-size:14px; color:var(--mute); margin-top:10px;">Read from your words only. A person checks it before it goes public.</p>
+        <div class="bottom"><span class="btn ghost">Back</span><span class="btn">Send report</span></div>
+        <div class="ann">Sign-in is asked only here, at send. The draft is saved on the device until then, so nothing is lost.</div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7: DONE + LANGUAGE -->
+    <section class="slide" data-i="6">
+      <div class="frame" style="text-align:center; padding:44px 28px;">
+        <div class="label">Done</div>
+        <h2 style="margin-top:12px;">Your report is in.</h2>
+        <p style="max-width:520px; margin:8px auto;">A person will check it before it goes public. Reference <b>THB-36E1C1AE</b>.</p>
+        <div class="row" style="justify-content:center; margin-top:22px;"><span class="btn">Report another problem</span><span class="btn ghost">Open the feed</span></div>
+        <div class="note" style="max-width:600px; margin:24px auto 0; text-align:left;">
+          <b style="color:var(--ink);">Future feature, not in the demo: Tamil switch</b><br>When added: the words fade with a light blur (about 180 ms, under 4 px). Inputs, map and draft are never blurred. Off when reduced motion is set.</div>
+      </div>
+    </section>
+
+  </div>
+
+  <nav class="nav" aria-label="Slides">
+    <button id="prev">← Back</button>
+    <div class="dots" id="dots"></div>
+    <button id="next">Next →</button>
+  </nav>
+</div>
+
+<script>
+  const slides = [...document.querySelectorAll('.slide')];
+  const dots = document.getElementById('dots');
+  const count = document.getElementById('count');
+  let i = 0;
+  slides.forEach((_, k) => { const d = document.createElement('i'); dots.appendChild(d); });
+  function show(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, k) => s.classList.toggle('on', k === i));
+    [...dots.children].forEach((d, k) => d.classList.toggle('on', k === i));
+    count.textContent = (i + 1) + ' / ' + slides.length;
+    document.getElementById('prev').disabled = i === 0;
+    document.getElementById('next').disabled = i === slides.length - 1;
+  }
+  document.getElementById('prev').onclick = () => show(i - 1);
+  document.getElementById('next').onclick = () => show(i + 1);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') show(i + 1);
+    if (e.key === 'ArrowLeft') show(i - 1);
+  });
+  show(0);
+</script>
+</body>
+</html>

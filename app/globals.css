@@ -1,8 +1,7 @@
 @import "tailwindcss";
 
 /* Design DNA "Quiet Craft" tokens, adapted for Thambi:
-   - Noto Sans / Noto Serif (+ Tamil) instead of Instrument Sans / Source Serif,
-     because those have no Tamil glyphs.
+   - Noto Sans / Noto Serif instead of Instrument Sans / Source Serif.
    - 18px base text for elderly readers (Technical Plan §13.3).
    - Primary action is the dark button (highest contrast); blue marks selection and links. */
 :root {
@@ -65,8 +64,8 @@
   --color-accent-tint: var(--accent-tint);
   --color-danger: var(--danger);
   --color-danger-tint: var(--danger-tint);
-  --font-sans: var(--font-sans), var(--font-tamil), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-serif), var(--font-serif-tamil), ui-serif, Georgia, serif;
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-serif), ui-serif, Georgia, serif;
 }
 
 html {
@@ -77,7 +76,7 @@ html {
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--font-sans), var(--font-tamil), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   font-size: 18px;
   line-height: 1.5;
 }

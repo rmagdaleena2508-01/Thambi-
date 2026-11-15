@@ -62,7 +62,7 @@
   <li><b>It closes the loop.</b> A report has a life: Reported → Verified → Sent → Acknowledged → Fixed → Confirmed by neighbours. "Fixed" needs an after-photo. That is the "fixes" half of the brief.</li>
   <li><b>It merges duplicates while you type.</b> The pop-out agent (my idea in Document 1) is our signature moment. Nobody else will have it. It goes in the first 30 seconds of the demo.</li>
   <li><b>It routes correctly, and explains why.</b> "This goes to Chennai Metro Water because it is a water main leak on a corporation road in Ward 1xx" — with the official contact and a ready letter.</li>
-  <li><b>It speaks Tamil.</b> <span class="tag">New</span> Tamil and English UI, and a citizen can write in Tamil or Tanglish. The track literally asks to make government easier to use; language is the biggest barrier.</li>
+  <li><b>Language later.</b> Tamil UI is a future feature, not in the demo. The demo is in English, and a citizen can write in English or Tanglish. The track literally asks to make government easier to use; language is the biggest barrier.</li>
   <li><b>It is hard to cheat.</b> One person, one vote; fake and abusive content gets flagged. Judges in civic tech always ask "what if people spam it?" We answer before they ask.</li>
   <li><b>It shows a measurable difference.</b> The brief says "makes a measurable difference". We show numbers: duplicates merged, time from report to authority, % with photo evidence, issues confirmed fixed.</li>
 </ol>
@@ -83,7 +83,7 @@
 <table>
   <tr><th style="width:25%">Who</th><th>What they need from Thambi</th></tr>
   <tr><td>Daily commuters (two-wheelers, auto, bus)</td><td>Report in under a minute at a signal or after reaching. See if the road is getting fixed.</td></tr>
-  <tr><td>Elderly residents</td><td>Big text, Tamil, almost no typing. Supporting an existing report with one tap.</td></tr>
+  <tr><td>Elderly residents</td><td>Big text, almost no typing. Supporting an existing report with one tap.</td></tr>
   <tr><td>Parents of school children</td><td>Flag danger near schools; see it ranked higher.</td></tr>
   <tr><td>Resident welfare associations</td><td>Collect support from the street and show one strong case to the ward office.</td></tr>
   <tr><td>Ward officers and departments (later users)</td><td>One clean, de-duplicated, evidence-backed case instead of fifty angry calls.</td></tr>
@@ -94,7 +94,7 @@
 <ol>
   <li><b>Report.</b> The citizen opens the site, picks what kind of problem it is, drops a pin (or uses their location), adds photos or a short video, and describes it.</li>
   <li><b>Check for duplicates while typing.</b> The agent pops out if similar reports exist nearby. The citizen either supports the existing report or continues.</li>
-  <li><b>Understand.</b> The AI reads the citizen's words — in Tamil, English or Tanglish — and the form answers. It writes a clean title and summary (in English and Tamil), checks the category, picks out danger words (open pit, exposed wire, standing water, near a school), and rates severity with a reason. In version 1 it does not look at the photos or videos; those are evidence for people.</li>
+  <li><b>Understand.</b> The AI reads the citizen's words — in English or Tanglish — and the form answers. It writes a clean title and an English summary, checks the category, picks out danger words (open pit, exposed wire, standing water, near a school), and rates severity with a reason. In version 1 it does not look at the photos or videos; those are evidence for people.</li>
   <li><b>Rate.</b> The citizen's severity and the AI's severity are both stored. The priority score combines them with support, danger and age.</li>
   <li><b>Route.</b> Rules match the category and location to the authority. Thambi writes a formal complaint and shows the official channel to send it.</li>
   <li><b>Show in public.</b> The report appears in the feed and on the map. Neighbours support it and comment.</li>
@@ -110,7 +110,7 @@
 
 <h3>6.2 Support button (the YouTube-like vote)</h3>
 <p><i>From Document 1:</i> a small vote button like a YouTube like.</p>
-<p><b>Developed:</b> we call it <b>"Me too"</b> (Tamil: "எனக்கும்"). Rules: one per person per report; you can't support your own report; the count is public. When someone supports, we ask one optional question — "Do you pass here daily, weekly, or rarely?" — which tells the authority how many people are really affected. A "Me too" with a fresh photo counts as stronger evidence and refreshes the report's "last seen" date.</p>
+<p><b>Developed:</b> we call it <b>"Me too"</b>. Rules: one per person per report; you can't support your own report; the count is public. When someone supports, we ask one optional question — "Do you pass here daily, weekly, or rarely?" — which tells the authority how many people are really affected. A "Me too" with a fresh photo counts as stronger evidence and refreshes the report's "last seen" date.</p>
 
 <h3>6.3 Ranking — locality and severity, plus four more</h3>
 <p><i>From Document 1:</i> segregate by locality and severity, and suggest more categories.</p>
@@ -172,7 +172,7 @@
   <tr><td>1</td><td>What is the problem? (picture tiles: Road · Water leak · Sewage · Garbage · Streetlight · Pollution · Other)</td><td>Gives the category for routing and duplicate search. Pictures work for anyone, in any language.</td></tr>
   <tr><td>2</td><td>Where is it? (map pin from your location, then road name, locality, nearest landmark)</td><td>Exact spot for the map and for duplicates. Landmarks are how people in Chennai really give directions.</td></tr>
   <tr><td>3</td><td>Add photos or a short video (up to 4 photos, 1 video up to 30 seconds)</td><td>Visual evidence for neighbours, moderators and officials. In version 1 the AI does not read photos or videos.</td></tr>
-  <tr><td>4</td><td>Tell us in your words (Tamil or English) — <i>the pop-out agent lives here</i></td><td>Description and duplicate check. Placed after what/where so the agent has context.</td></tr>
+  <tr><td>4</td><td>Tell us in your words (English or Tanglish) — <i>the pop-out agent lives here</i></td><td>Description and duplicate check. Placed after what/where so the agent has context.</td></tr>
   <tr><td>5</td><td>How long has it been like this? (days · weeks · months · over a year)</td><td>Age signal for priority.</td></tr>
   <tr><td>6</td><td>How serious is it for you? (1 Annoying · 2 Slows me down · 3 Damages vehicles · 4 People could get hurt · 5 Danger right now)</td><td>The citizen's own severity check, in plain words, not just numbers.</td></tr>
   <tr><td>7</td><td>Who gets affected? (walkers · two-wheelers · school children · elderly · shops · everyone)</td><td>Danger and reach signals.</td></tr>
@@ -206,7 +206,7 @@
 <table>
   <tr><th style="width:22%">Threat</th><th>How Thambi catches it</th></tr>
   <tr><td>Fake complaint</td><td>Photo location and time (if the camera saved them) are compared with the pin; the same photo reused across reports is detected by an image fingerprint; the AI flags descriptions that don't read like a real civic problem. These reports go to "Needs review" instead of the public feed. (AI checking that the photo itself shows the problem comes in version 2.)</td></tr>
-  <tr><td>Abusive or fake comments</td><td>Every comment is checked by AI for abuse, threats, personal attacks on named people, and spam, in Tamil and English, before it appears. Borderline ones wait for review. Users can report a comment.</td></tr>
+  <tr><td>Abusive or fake comments</td><td>Every comment is checked by AI for abuse, threats, personal attacks on named people, and spam, in English and Tanglish, before it appears. Borderline ones wait for review. Users can report a comment.</td></tr>
   <tr><td>False voting</td><td>Sign-in required; one "Me too" per account per report; brand-new accounts count less for the first day; sudden bursts of support on one report from new accounts are flagged.</td></tr>
   <tr><td>Bots</td><td>A human check on sign-up and on posting, rate limits (e.g. at most 5 reports and 30 comments a day), and a hidden "honeypot" field bots fill but people never see.</td></tr>
 </table>
@@ -262,7 +262,7 @@
   <tr><td>Sun 15 Nov</td><td>Set up project, database, sign-in, live empty site. Extract and verify the authority contacts. Photograph and film the Sunday route.</td></tr>
   <tr><td>Mon 16 Nov</td><td>Database with security rules. Report form end to end with uploads. AI reading of the description and severity.</td></tr>
   <tr><td>Tue 17 Nov</td><td>Duplicate pop-out agent, Me too, feed, map, routing and complaint letter, status flow with locked history. <b>Core product live.</b></td></tr>
-  <tr><td>Wed 18 Nov</td><td>Fixed tab, dashboard numbers, moderation (comments, fake detection, vote limits), Tamil UI, polish.</td></tr>
+  <tr><td>Wed 18 Nov</td><td>Fixed tab, dashboard numbers, moderation (comments, fake detection, vote limits), polish.</td></tr>
   <tr><td>Thu 19 Nov</td><td>Testing with 5–10 real people. Fix what confuses them. Record the demo video.</td></tr>
   <tr><td>Fri 20 Nov</td><td>Submissions open at 6 PM. Run the Readiness Check and <b>submit the same evening.</b></td></tr>
   <tr><td>Sat 21 – Sun 22 Nov</td><td>Buffer. Improve and update the submission only if the platform allows it. Deadline 22 November, 11:59 PM.</td></tr>

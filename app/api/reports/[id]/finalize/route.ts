@@ -97,9 +97,7 @@ export async function POST(_request: NextRequest, ctx: RouteContext<"/api/report
     .from("reports")
     .update({
       title: report.title || reading.title_en,
-      title_ta: reading.title_ta,
       summary_en: reading.summary_en,
-      summary_ta: reading.summary_ta,
       text_severity: Math.max(reading.text_severity ?? 0, report.text_severity ?? 0) || null,
       severity_reason: reading.severity_reason,
       danger_flags: Array.from(new Set([...(report.danger_flags ?? []), ...reading.danger_flags])),

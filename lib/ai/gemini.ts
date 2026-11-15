@@ -15,9 +15,7 @@ export const AnalysisSchema = z.object({
   category_matches_user_choice: z.boolean(),
   suggested_category: z.string(),
   title_en: z.string().max(140),
-  title_ta: z.string().max(200),
   summary_en: z.string().max(600),
-  summary_ta: z.string().max(900),
   danger_words: z.array(z.string()).max(10),
   text_severity: z.number().int().min(1).max(5),
   severity_reason: z.string().max(300),
@@ -47,7 +45,6 @@ Rate severity from the words using exactly this scale:
 Be calm and literal. Do not exaggerate. If the words are vague, rate lower and say so in severity_reason.
 
 Write title_en as a short plain title (max ~70 chars) naming the problem and the place, e.g. "Deep open pit beside metro pillar, Arcot Road".
-Write title_ta and summary_ta in simple, natural Tamil that an elderly reader understands.
 summary_en: 1–2 plain sentences. No blame, no names of private individuals, no phone numbers.
 danger_words: short snake_case tags of hazards the words describe (open_pit, live_wire, open_manhole, sewage_overflow, flooding, no_barricade, near_school, near_hospital, accident_reported).
 looks_like_real_civic_problem: false for spam, jokes, abuse, advertising, or text unrelated to a public civic problem.
@@ -59,9 +56,7 @@ const RESPONSE_SCHEMA = {
     category_matches_user_choice: { type: "BOOLEAN" },
     suggested_category: { type: "STRING" },
     title_en: { type: "STRING" },
-    title_ta: { type: "STRING" },
     summary_en: { type: "STRING" },
-    summary_ta: { type: "STRING" },
     danger_words: { type: "ARRAY", items: { type: "STRING" } },
     text_severity: { type: "INTEGER" },
     severity_reason: { type: "STRING" },
@@ -70,7 +65,7 @@ const RESPONSE_SCHEMA = {
     suggested_comment_starters: { type: "ARRAY", items: { type: "STRING" } },
   },
   required: [
-    "category_matches_user_choice", "suggested_category", "title_en", "title_ta", "summary_en", "summary_ta",
+    "category_matches_user_choice", "suggested_category", "title_en", "summary_en",
     "danger_words", "text_severity", "severity_reason", "looks_like_real_civic_problem", "confidence",
     "suggested_comment_starters",
   ],

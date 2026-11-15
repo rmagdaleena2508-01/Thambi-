@@ -21,7 +21,6 @@ export default function LoginPage({ searchParams }: PageProps<"/login">) {
       </Link>
       <section className="rise surface mt-6 rounded-[20px] p-6">
         <h1 className="text-[28px] leading-tight tracking-[-0.02em]">Sign in</h1>
-        <p lang="ta" className="mt-1 text-ink-64">உள்நுழையவும்</p>
         <div className="mt-6">
           <Suspense fallback={<div className="h-[260px]" />}>
             <LoginBody searchParams={searchParams} />

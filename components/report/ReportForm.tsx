@@ -29,7 +29,6 @@ const ICONS = {
 
 const TOTAL = 8;
 const DRAFT_KEY = "thambi:draft:v1";
-const LANG_KEY = "thambi:lang";
 
 type Draft = {
   category: Category | null;
@@ -53,7 +52,6 @@ type Reading = {
   source: "ai" | "keywords";
   title_en: string | null;
   summary_en: string | null;
-  summary_ta: string | null;
   text_severity: number | null;
   severity_reason: string | null;
   danger_flags: string[];
@@ -81,7 +79,7 @@ function writeStorage(key: string, value: unknown) {
 
 export default function ReportForm() {
   const supabase = useMemo(() => createClient(), []);
-  const [lang, setLang] = useState<Lang>(() => readStorage<Lang>(LANG_KEY, "en"));
+  const lang: Lang = "en";
   const [d, setD] = useState<Draft>(() => ({ ...EMPTY, ...readStorage<Partial<Draft>>(DRAFT_KEY, {}) }));
   const hydrated = true;
   const [userId, setUserId] = useState<string | null>(null);
@@ -122,7 +120,6 @@ export default function ReportForm() {
 
   useEffect(() => {
     document.documentElement.lang = lang;
-    if (hydrated) writeStorage(LANG_KEY, lang);
   }, [lang, hydrated]);
 
   // Move focus to each new question, for keyboard and screen-reader users.
@@ -364,21 +361,6 @@ export default function ReportForm() {
       <Link href="/" className="text-[20px] font-semibold tracking-[-0.02em]">
         Thambi
       </Link>
-      <div className="pill flex rounded-full bg-surface p-1" role="group" aria-label="Language">
-        {(["en", "ta"] as const).map((l) => (
-          <button
-            key={l}
-            type="button"
-            aria-pressed={lang === l}
-            onClick={() => setLang(l)}
-            className={`min-h-[40px] min-w-[52px] rounded-full px-3 text-[15px] font-medium transition-colors duration-150 ${
-              lang === l ? "bg-[var(--btn-dark)] text-[var(--btn-dark-text)]" : "text-ink-72"
-            }`}
-          >
-            {l === "en" ? "English" : "தமிழ்"}
-          </button>
-        ))}
-      </div>
     </header>
   );
 
@@ -407,7 +389,7 @@ export default function ReportForm() {
                 else if (d.step === TOTAL && !reading) loadReading();
               }}
             >
-              <Check size={18} aria-hidden /> {lang === "en" ? "I've signed in" : "உள்நுழைந்துவிட்டேன்"}
+              <Check size={18} aria-hidden /> {"I've signed in"}
             </button>
           </div>
           <button type="button" className="btn btn-quiet mt-2" onClick={() => setPhase("form")}>
@@ -705,8 +687,8 @@ export default function ReportForm() {
             ) : (
               <div className="surface rounded-[16px] p-5">
                 <Field label={t("titleLabel", lang)} value={d.title} onChange={(v) => set("title", v)} max={140} />
-                {(lang === "ta" ? reading.summary_ta : reading.summary_en) && (
-                  <p className="mt-4 font-serif text-[17px] text-ink-72">{lang === "ta" ? reading.summary_ta : reading.summary_en}</p>
+                {reading.summary_en && (
+                  <p className="mt-4 font-serif text-[17px] text-ink-72">{reading.summary_en}</p>
                 )}
                 <dl className="mt-5 grid gap-4 sm:grid-cols-2">
                   <div>

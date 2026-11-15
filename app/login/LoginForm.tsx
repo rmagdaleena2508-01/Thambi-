@@ -31,9 +31,6 @@ export default function LoginForm({ next, linkError }: { next: string; linkError
           We sent a sign-in link to <span className="text-ink">{email}</span>. Open it on this device, then come back to
           your report — your draft is saved.
         </p>
-        <p lang="ta" className="mt-2 font-serif text-ink-64">
-          உங்கள் மின்னஞ்சலுக்கு ஒரு இணைப்பு அனுப்பப்பட்டது. அதைத் திறந்து புகாருக்குத் திரும்புங்கள்.
-        </p>
       </div>
     );
   }
@@ -58,7 +55,7 @@ export default function LoginForm({ next, linkError }: { next: string; linkError
 
       <form onSubmit={sendLink} className="flex flex-col gap-3">
         <label className="flex flex-col gap-1.5">
-          <span className="text-[15px] font-medium text-ink-72">Email · மின்னஞ்சல்</span>
+          <span className="text-[15px] font-medium text-ink-72">Email</span>
           <input
             className="field"
             type="email"
