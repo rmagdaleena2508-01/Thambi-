@@ -398,6 +398,7 @@ The first target is **100 users**, which keeps every service within its free tie
 | 🟢 | Project setup: app, database, hosting |
 | 🟢 | Authority directory extracted and verified |
 | 🟢 | Database schema and security rules |
+| 🟢 | Landing page and visual system |
 | 🟠 | Report form with AI reading of the description |
 | 🟠 | Duplicate detection pop-out and "Me too" |
 | ⚪ | Feed, map, priority score |
@@ -456,6 +457,14 @@ The first target is **100 users**, which keeps every service within its free tie
 - **District Collectors (38):** emails 38/38 match; phones 24 match (5 missing STD codes filled in from district sites); 14 uncertain. Mayiladuthurai's number on `tn.gov.in` was confirmed wrong. Official mobile numbers listed on district sites are not stored, by policy.
 - **Departments:** Chennai Corporation 1913 and Metro Water 044-4567 4567 verified on their own sites. Electricity's own site lists 94987 94987 rather than 1912. Added four offices from their own websites: electricity power-failure line, Pollution Control Board, Chennai Metro Rail, and the State Highways Namma Saalai app.
 - **Result: 50 contacts — 31 verified, 14 uncertain, 5 not yet checkable.** Every contact Thambi needs for Chennai routing is verified. Loaded into the database; full report in [`data/VERIFICATION.md`](data/VERIFICATION.md).
+
+### 🟢 Landing page and visual system
+
+- **Landing page** built with the approved outline: hero, sample report, the problem, four taps, a live duplicate demo, a tagline that lights up word by word on scroll, how it works, who it is for, honest status, FAQ and a final call to action.
+- **Geist** throughout on a white background, the same typeface as the reference site. English only for the demo.
+- **Colour system:** teal for actions and selected states, a calm teal tint for section bands, and a deep teal block for the final call to action.
+- **Status and severity** always show colour, icon and word together. Every text pair checked against WCAG AA. One pair (teal on the selected tint) failed and was changed to ink.
+- **Design brief** for the next pass in [`design/UI_UX_PROMPT.md`](design/UI_UX_PROMPT.md).
 
 ### 🟢 Database schema and security rules
 
