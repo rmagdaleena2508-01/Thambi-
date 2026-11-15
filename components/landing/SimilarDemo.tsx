@@ -13,7 +13,7 @@ export default function SimilarDemo() {
 
   return (
     <div className="surface rounded-[20px] p-6 sm:p-8">
-      <label htmlFor="demo-text" className="text-[16px] font-medium text-ink-72">
+      <label htmlFor="demo-text" className="text-base font-medium text-ink-72">
         Describe what you see
       </label>
       <textarea
@@ -27,16 +27,16 @@ export default function SimilarDemo() {
       <div aria-live="polite" className="mt-4 min-h-[1px]">
         {matched && (
           <div className="popout rounded-[16px] border border-[var(--accent)] bg-[var(--accent-tint)] p-5">
-            <p className="flex items-center gap-2 text-[17px] font-semibold">
+            <p className="flex items-center gap-2 text-base font-semibold">
               <Users size={20} weight="bold" aria-hidden /> Similar problems nearby
             </p>
-            <p className="mt-1 text-[16px] text-ink-72">
+            <p className="mt-1 text-base text-ink-72">
               Is it one of these? Add your Me too so your voice joins theirs.
             </p>
             <div className="mt-4 rounded-[12px] bg-[var(--surface)] p-4">
               <p className="font-medium">Deep pit near the signal</p>
-              <p className="tabular mt-1 text-[15px] text-ink-64">8 m away · 23 people · open 41 days</p>
-              <p className="mt-1 text-[13px] text-ink-50">Example data for this demo, not a real report.</p>
+              <p className="tabular mt-1 text-sm text-ink-64">8 m away · 23 people · open 41 days</p>
+              <p className="mt-1 text-xs text-ink-50">Example data for this demo, not a real report.</p>
             </div>
             <div className="mt-4 flex flex-col gap-2 sm:flex-row">
               <button type="button" className="btn btn-primary">Yes, add my Me too</button>
@@ -45,7 +45,7 @@ export default function SimilarDemo() {
           </div>
         )}
         {!matched && text.trim().length > 0 && (
-          <p className="text-[16px] text-ink-64">Keep typing. Thambi looks for matching reports as you describe the problem.</p>
+          <p className="text-base text-ink-64">Keep typing. Thambi looks for matching reports as you describe the problem.</p>
         )}
       </div>
     </div>
