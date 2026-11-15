@@ -382,3 +382,17 @@ Thambi is in early development for a hackathon. Ideas, corrections to authority 
 ## License
 
 [MIT](LICENSE)
+
+---
+
+## Getting started (developers)
+
+```bash
+npm install
+cp .env.example .env.local   # fill in the public Supabase values
+npm run dev
+```
+
+- Database changes live in `supabase/migrations/`.
+- Authority contacts are extracted from saved official pages with `python3 scripts/extract_authorities.py research/raw` into `data/authorities.csv`. Rows start as `extracted` and are used for routing only after a person marks them `verified`.
+- Server-only secrets (`SUPABASE_SERVICE_ROLE_KEY`, `GEMINI_API_KEY`) go in Vercel environment variables, never in git.
