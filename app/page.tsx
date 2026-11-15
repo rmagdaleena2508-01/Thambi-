@@ -1,15 +1,22 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
-    <main className="flex flex-1 flex-col items-center justify-center px-4 py-24 text-center">
-      <p className="text-sm uppercase tracking-[0.2em] text-neutral-500">Coming soon · விரைவில்</p>
-      <h1 className="mt-4 text-5xl font-semibold tracking-tight sm:text-6xl">Thambi</h1>
-      <p lang="ta" className="mt-2 text-2xl text-neutral-700 dark:text-neutral-300 [font-family:var(--font-tamil)]">
+    <main className="flex flex-1 flex-col items-center justify-center px-5 py-24 text-center">
+      <p className="text-[14px] uppercase tracking-[0.2em] text-ink-50">Tamil Nadu · தமிழ்நாடு</p>
+      <h1 className="rise mt-4 text-[clamp(44px,9vw,72px)] leading-[0.98] tracking-[-0.03em]">Thambi</h1>
+      <p lang="ta" className="rise mt-2 text-[24px] text-ink-72" style={{ animationDelay: "80ms" }}>
         தம்பி கிட்ட சொல்லுங்க
       </p>
-      <p className="mt-6 max-w-md text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
-        Tell Thambi. It gets taken care of. Report broken roads, water leaks and sewage in Tamil Nadu,
-        and see them tracked in public until they are fixed.
+      <p className="rise mt-6 max-w-[520px] font-serif text-[19px] leading-relaxed text-ink-64" style={{ animationDelay: "160ms" }}>
+        Tell Thambi. It gets taken care of. Report broken roads, water leaks and sewage, and see them tracked in public
+        until they are fixed.
       </p>
+      <div className="rise mt-8 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "240ms" }}>
+        <Link href="/report/new" className="btn btn-primary">
+          Report a problem · புகார் செய்
+        </Link>
+      </div>
     </main>
   );
 }

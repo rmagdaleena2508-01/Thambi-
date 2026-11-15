@@ -316,6 +316,12 @@ Every authority row shows a **"verified on"** date to the public, so anyone can 
 - **Routing rules are still being written.** Which office handles which problem will be based on each department's published duties, and every rule will cite its source.
 - **AI severity is a reading of words, not a judgement of the photo.** In version 1 the AI reads the citizen's description only. It can be wrong. The citizen's own rating is always stored and shown next to it, and a person reviews anything the AI isn't confident about.
 - **Problem-size facts come from news reports** (2023–2024). They are cited as news, not as official statistics.
+- **The AI is not switched on yet.** Until the AI key and the server key are added, Thambi reads reports with the database's keyword list only, and every new report waits for a moderator before it is public.
+- **The keyword list is simple word matching.** It can miss danger described in unusual words, or flag a word out of context (for example "school" in "no school nearby"). It only sets a minimum severity; a person or the AI refines it.
+- **Tamil wording on the report form is ours and needs a native speaker's review.**
+- **Videos stay private in version 1.** Photos are cleaned on the server (resized, all metadata removed) before anything is public; videos are not yet cleaned, so they are kept private and shown only to moderators.
+- **The photo-location check is not active yet.** Comparing a photo's GPS with the map pin is planned; today only reused photos are detected.
+- **Email sign-in uses Supabase's built-in email service**, which sends a limited number of emails per hour. Google sign-in needs to be set up before it works.
 - **Demo reports are the founder's own.** Seed reports are real problems photographed by the founder and labelled that way. Nothing invented is presented as real.
 
 Found something wrong? Open an issue with the **Wrong authority contact** template and link an official source.
